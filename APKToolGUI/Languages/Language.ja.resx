@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -481,7 +481,7 @@
     <value>ADB サーバーを強制終了しますか？ デバイスを再接続するか、エミュレーターを再起動する必要があるかもしれません</value>
   </data>
   <data name="DeviceNotSelected" xml:space="preserve">
-    <value>デバイスが選択されていません</value>
+    <value>デバイスが未選択です</value>
   </data>
   <data name="DeviceSelected" xml:space="preserve">
     <value>選択されたデバイス: {0}</value>
