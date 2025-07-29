@@ -1,63 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
-    Sơ đồ Microsoft ResX
+    Microsoft ResX Schema 
     
-    Phiên bản 2.0
+    Version 2.0
     
-    Mục tiêu chính của định dạng này là cho phép một định dạng XML đơn giản
-    đọc được chủ yếu bằng tay. Việc tạo và phân tích cú pháp các
-    kiểu dữ liệu khác nhau được thực hiện thông qua các lớp TypeConverter
-    liên kết với các kiểu dữ liệu.
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
     
-    Ví dụ:
+    Example:
     
-    ... tiêu đề & sơ đồ ado.net/XML ...
+    ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>đây là chuỗi dài của tôi</value><comment>đây là một bình luận</comment></data>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
     <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[đối tượng .NET Framework được tuần tự hóa mã hóa mime base64]</value>
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
     <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[chuỗi mã hóa mime base64 đại diện cho mảng byte của đối tượng .NET Framework]</value>
-        <comment>Đây là một bình luận</comment>
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
     </data>
                 
-    Có bất kỳ số lượng hàng "resheader" nào chứa đơn giản
-    các cặp tên/giá trị.
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
     
-    Mỗi hàng dữ liệu chứa một tên và giá trị. Hàng cũng chứa một
-    kiểu hoặc mimetype. Kiểu tương ứng với một lớp .NET hỗ trợ
-    chuyển đổi văn bản/giá trị thông qua kiến trúc TypeConverter.
-    Các lớp không hỗ trợ điều này được tuần tự hóa và lưu trữ với
-    mimetype được đặt.
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
     
-    mimetype được sử dụng cho các đối tượng được tuần tự hóa và cho biết
-    ResXResourceReader cách khôi phục đối tượng. Hiện tại điều này không
-    có thể mở rộng. Đối với một mimetype nhất định, giá trị phải được đặt cho phù hợp:
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
     
-    Lưu ý - application/x-microsoft.net.object.binary.base64 là định dạng
-    mà ResXResourceWriter sẽ tạo ra, tuy nhiên trình đọc có thể
-    đọc bất kỳ định dạng nào được liệt kê bên dưới.
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
     
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : Đối tượng phải được tuần tự hóa với
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : và sau đó được mã hóa bằng mã hóa base64.
+            : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : Đối tượng phải được tuần tự hóa với
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : và sau đó được mã hóa bằng mã hóa base64.
+            : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : Đối tượng phải được tuần tự hóa thành một mảng byte
-            : sử dụng System.ComponentModel.TypeConverter
-            : và sau đó được mã hóa bằng mã hóa base64.
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -130,7 +130,7 @@
     <value>Mô tả</value>
   </data>
   <data name="linkLabel1.Text" xml:space="preserve">
-    <value>Phản hồi Github</value>
+    <value>Kho Github</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Giới thiệu</value>
