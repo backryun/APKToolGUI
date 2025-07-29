@@ -1,3 +1,11 @@
+3.3.1.6
+- Fixed APK installation issue (Revert back to DotNetZip but using ProDotNetZip for fixed vulnerability)
+- Update packages
+- Reduced UI flickering
+- Removed APK links that are no longer available
+- Fixed icon not displaying. It will load icon from Play Store as a last resort
+- Faster apk parsing
+
 3.3.1.5
 - Updated Apktool and Apkeditor to latest version
 - Splitter between logs box and tab window is now draggable
