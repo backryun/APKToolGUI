@@ -256,6 +256,18 @@ namespace APKToolGUI
             using (JarProcess apktoolJar = new JarProcess(JavaPath, JarPath))
             {
                 apktoolJar.EnableRaisingEvents = false;
+                apktoolJar.Start("version");
+                string version = apktoolJar.StandardOutput.ReadToEnd();
+                apktoolJar.WaitForExit(3000);
+                return version.Replace("\r\n", "");
+            }
+        }
+
+        public string GetVersionOld()
+        {
+            using (JarProcess apktoolJar = new JarProcess(JavaPath, JarPath))
+            {
+                apktoolJar.EnableRaisingEvents = false;
                 apktoolJar.Start("-version");
                 string version = apktoolJar.StandardOutput.ReadToEnd();
                 apktoolJar.WaitForExit(3000);

@@ -16,6 +16,7 @@ using System.Media;
 using System.Linq;
 using APKToolGUI.Controls;
 using Ionic.Zip;
+using System.Text.RegularExpressions;
 
 namespace APKToolGUI
 {
@@ -668,8 +669,11 @@ namespace APKToolGUI
             }
 
             string apktoolVersion = apktool.GetVersion();
-            if (!String.IsNullOrWhiteSpace(apktoolVersion))
-                ToLog(ApktoolEventType.None, String.Format(Language.APKToolVersion + " \"{0}\"", apktoolVersion));
+            string apktoolVersionOld = apktool.GetVersionOld();
+            if (!String.IsNullOrWhiteSpace(apktoolVersion) && !Regex.IsMatch(apktoolVersion, @"\r\n?|\n"))
+                ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} \"{apktoolVersion}\"");
+            else if (!String.IsNullOrWhiteSpace(apktoolVersionOld) && !Regex.IsMatch(apktoolVersionOld, @"\r\n?|\n"))
+                ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} \"{apktoolVersionOld}\"");
             else
                 ToLog(ApktoolEventType.Error, Language.CantDetectApktoolVersion);
 
@@ -1393,12 +1397,16 @@ namespace APKToolGUI
                     {
                         ToLog(ApktoolEventType.None, javaVersion);
                         string apktoolVersion = apktool.GetVersion();
-                        string apkeditorVersion = apkeditor.GetVersion();
-                        if (!String.IsNullOrWhiteSpace(apktoolVersion))
-                            ToLog(ApktoolEventType.None, String.Format(Language.APKToolVersion + " {0}", apktoolVersion));
+                        string apktoolVersionOld = apktool.GetVersionOld();
+
+                        if (!String.IsNullOrWhiteSpace(apktoolVersion) && !Regex.IsMatch(apktoolVersion, @"\r\n?|\n"))
+                            ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} {apktoolVersion}");
+                        else if (!String.IsNullOrWhiteSpace(apktoolVersionOld) && !Regex.IsMatch(apktoolVersionOld, @"\r\n?|\n"))
+                            ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} {apktoolVersionOld}");
                         else
                             ToLog(ApktoolEventType.Error, Language.CantDetectApktoolVersion);
 
+                        string apkeditorVersion = apkeditor.GetVersion();
                         if (!String.IsNullOrWhiteSpace(apkeditorVersion))
                             ToLog(ApktoolEventType.None, apkeditorVersion);
                         else
