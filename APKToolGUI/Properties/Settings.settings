@@ -216,7 +216,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Build_UseAapt2" Provider="Bluegrams.Application.PortableSettingsProvider" Roaming="true" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="PlaySoundWhenDone" Provider="Bluegrams.Application.PortableSettingsProvider" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
