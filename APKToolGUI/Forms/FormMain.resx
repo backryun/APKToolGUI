@@ -393,6 +393,639 @@
   <data name="tabPageBuild.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="comJobsLvlUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>491, 321</value>
+  </data>
+  <data name="comJobsLvlUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 22</value>
+  </data>
+  <data name="comJobsLvlUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;comJobsLvlUpDown.Name" xml:space="preserve">
+    <value>comJobsLvlUpDown</value>
+  </data>
+  <data name="&gt;&gt;comJobsLvlUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comJobsLvlUpDown.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;comJobsLvlUpDown.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkBox4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 323</value>
+  </data>
+  <data name="checkBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 17</value>
+  </data>
+  <data name="checkBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="checkBox4.Text" xml:space="preserve">
+    <value>Set the number of threads to use.</value>
+  </data>
+  <data name="&gt;&gt;checkBox4.Name" xml:space="preserve">
+    <value>checkBox4</value>
+  </data>
+  <data name="&gt;&gt;checkBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox4.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkBox_BUILD_NetSecConf.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox_BUILD_NetSecConf.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox_BUILD_NetSecConf.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 172</value>
+  </data>
+  <data name="checkBox_BUILD_NetSecConf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>376, 17</value>
+  </data>
+  <data name="checkBox_BUILD_NetSecConf.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="checkBox_BUILD_NetSecConf.Text" xml:space="preserve">
+    <value>Add a generic Network Security Configuration file in the output APK</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Name" xml:space="preserve">
+    <value>checkBox_BUILD_NetSecConf</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="useAapt2ChkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="useAapt2ChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="useAapt2ChkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 273</value>
+  </data>
+  <data name="useAapt2ChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>403, 17</value>
+  </data>
+  <data name="useAapt2ChkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="useAapt2ChkBox.Text" xml:space="preserve">
+    <value>Use aapt2 (Upgrades apktool to use experimental aapt2 binary.) (&lt; 2.11.1)</value>
+  </data>
+  <data name="&gt;&gt;useAapt2ChkBox.Name" xml:space="preserve">
+    <value>useAapt2ChkBox</value>
+  </data>
+  <data name="&gt;&gt;useAapt2ChkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;useAapt2ChkBox.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;useAapt2ChkBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buildApiLvlUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>492, 17</value>
+  </data>
+  <data name="buildApiLvlUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 22</value>
+  </data>
+  <data name="buildApiLvlUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;buildApiLvlUpDown.Name" xml:space="preserve">
+    <value>buildApiLvlUpDown</value>
+  </data>
+  <data name="&gt;&gt;buildApiLvlUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buildApiLvlUpDown.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;buildApiLvlUpDown.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buildSetApiLvlChkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="buildSetApiLvlChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buildSetApiLvlChkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="buildSetApiLvlChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 17</value>
+  </data>
+  <data name="buildSetApiLvlChkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="buildSetApiLvlChkBox.Text" xml:space="preserve">
+    <value>Set API level of the file to generate, e.g. 14 for ICS.</value>
+  </data>
+  <data name="&gt;&gt;buildSetApiLvlChkBox.Name" xml:space="preserve">
+    <value>buildSetApiLvlChkBox</value>
+  </data>
+  <data name="&gt;&gt;buildSetApiLvlChkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buildSetApiLvlChkBox.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;buildSetApiLvlChkBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="createUnsignApkChkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="createUnsignApkChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="createUnsignApkChkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 247</value>
+  </data>
+  <data name="createUnsignApkChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 17</value>
+  </data>
+  <data name="createUnsignApkChkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="createUnsignApkChkBox.Text" xml:space="preserve">
+    <value>Create unsigned APK with original signature after build</value>
+  </data>
+  <data name="createUnsignApkChkBox.ToolTip" xml:space="preserve">
+    <value>Only compatible with Core Patch module. Rooted device is required.</value>
+  </data>
+  <data name="&gt;&gt;createUnsignApkChkBox.Name" xml:space="preserve">
+    <value>createUnsignApkChkBox</value>
+  </data>
+  <data name="&gt;&gt;createUnsignApkChkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;createUnsignApkChkBox.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;createUnsignApkChkBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="signAfterBuildChkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="signAfterBuildChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="signAfterBuildChkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 222</value>
+  </data>
+  <data name="signAfterBuildChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 17</value>
+  </data>
+  <data name="signAfterBuildChkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="signAfterBuildChkBox.Text" xml:space="preserve">
+    <value>Sign after build / zipalign</value>
+  </data>
+  <data name="&gt;&gt;signAfterBuildChkBox.Name" xml:space="preserve">
+    <value>signAfterBuildChkBox</value>
+  </data>
+  <data name="&gt;&gt;signAfterBuildChkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;signAfterBuildChkBox.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;signAfterBuildChkBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="zipalignAfterBuildChkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="zipalignAfterBuildChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="zipalignAfterBuildChkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 197</value>
+  </data>
+  <data name="zipalignAfterBuildChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 17</value>
+  </data>
+  <data name="zipalignAfterBuildChkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="zipalignAfterBuildChkBox.Text" xml:space="preserve">
+    <value>Zipalign after build</value>
+  </data>
+  <data name="&gt;&gt;zipalignAfterBuildChkBox.Name" xml:space="preserve">
+    <value>zipalignAfterBuildChkBox</value>
+  </data>
+  <data name="&gt;&gt;zipalignAfterBuildChkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;zipalignAfterBuildChkBox.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;zipalignAfterBuildChkBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="checkBox_BUILD_NoCrunch.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox_BUILD_NoCrunch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox_BUILD_NoCrunch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 147</value>
+  </data>
+  <data name="checkBox_BUILD_NoCrunch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 17</value>
+  </data>
+  <data name="checkBox_BUILD_NoCrunch.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="checkBox_BUILD_NoCrunch.Text" xml:space="preserve">
+    <value>Disable crunching of resource files during the build step.</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Name" xml:space="preserve">
+    <value>checkBox_BUILD_NoCrunch</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="button_BUILD_BrowseOutputAppPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="button_BUILD_BrowseOutputAppPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button_BUILD_BrowseOutputAppPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>524, 118</value>
+  </data>
+  <data name="button_BUILD_BrowseOutputAppPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 1, 1</value>
+  </data>
+  <data name="button_BUILD_BrowseOutputAppPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 24</value>
+  </data>
+  <data name="button_BUILD_BrowseOutputAppPath.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="button_BUILD_BrowseOutputAppPath.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Name" xml:space="preserve">
+    <value>button_BUILD_BrowseOutputAppPath</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="checkBox_BUILD_ForceAll.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox_BUILD_ForceAll.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox_BUILD_ForceAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 45</value>
+  </data>
+  <data name="checkBox_BUILD_ForceAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 17</value>
+  </data>
+  <data name="checkBox_BUILD_ForceAll.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="checkBox_BUILD_ForceAll.Text" xml:space="preserve">
+    <value>Skip changes detection and build all files.</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Name" xml:space="preserve">
+    <value>checkBox_BUILD_ForceAll</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_ForceAll.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="button_BUILD_BrowseFrameDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="button_BUILD_BrowseFrameDir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button_BUILD_BrowseFrameDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>524, 92</value>
+  </data>
+  <data name="button_BUILD_BrowseFrameDir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 1, 1</value>
+  </data>
+  <data name="button_BUILD_BrowseFrameDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 24</value>
+  </data>
+  <data name="button_BUILD_BrowseFrameDir.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="button_BUILD_BrowseFrameDir.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Name" xml:space="preserve">
+    <value>button_BUILD_BrowseFrameDir</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="button_BUILD_BrowseAaptPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="button_BUILD_BrowseAaptPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button_BUILD_BrowseAaptPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>524, 66</value>
+  </data>
+  <data name="button_BUILD_BrowseAaptPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 1, 1</value>
+  </data>
+  <data name="button_BUILD_BrowseAaptPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 24</value>
+  </data>
+  <data name="button_BUILD_BrowseAaptPath.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="button_BUILD_BrowseAaptPath.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Name" xml:space="preserve">
+    <value>button_BUILD_BrowseAaptPath</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="checkBox_BUILD_OutputAppPath.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox_BUILD_OutputAppPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox_BUILD_OutputAppPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 122</value>
+  </data>
+  <data name="checkBox_BUILD_OutputAppPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 17</value>
+  </data>
+  <data name="checkBox_BUILD_OutputAppPath.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkBox_BUILD_OutputAppPath.Text" xml:space="preserve">
+    <value>APK output directory:</value>
+  </data>
+  <data name="checkBox_BUILD_OutputAppPath.ToolTip" xml:space="preserve">
+    <value>Output directory will be used for Zipalign and Signing too after compile</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Name" xml:space="preserve">
+    <value>checkBox_BUILD_OutputAppPath</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="checkBox_BUILD_CopyOriginal.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox_BUILD_CopyOriginal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox_BUILD_CopyOriginal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 298</value>
+  </data>
+  <data name="checkBox_BUILD_CopyOriginal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 17</value>
+  </data>
+  <data name="checkBox_BUILD_CopyOriginal.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkBox_BUILD_CopyOriginal.Text" xml:space="preserve">
+    <value>Copy original AndroidManifest.xml and META-INF folder</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Name" xml:space="preserve">
+    <value>checkBox_BUILD_CopyOriginal</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="textBox_BUILD_OutputAppPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="textBox_BUILD_OutputAppPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 119</value>
+  </data>
+  <data name="textBox_BUILD_OutputAppPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="textBox_BUILD_OutputAppPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 22</value>
+  </data>
+  <data name="textBox_BUILD_OutputAppPath.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Name" xml:space="preserve">
+    <value>textBox_BUILD_OutputAppPath</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="checkBox_BUILD_UseAapt.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox_BUILD_UseAapt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox_BUILD_UseAapt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 69</value>
+  </data>
+  <data name="checkBox_BUILD_UseAapt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 17</value>
+  </data>
+  <data name="checkBox_BUILD_UseAapt.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkBox_BUILD_UseAapt.Text" xml:space="preserve">
+    <value>Uses aapt.exe located in:</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Name" xml:space="preserve">
+    <value>checkBox_BUILD_UseAapt</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseAapt.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="textBox_BUILD_AaptPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="textBox_BUILD_AaptPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 67</value>
+  </data>
+  <data name="textBox_BUILD_AaptPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="textBox_BUILD_AaptPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 22</value>
+  </data>
+  <data name="textBox_BUILD_AaptPath.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_AaptPath.Name" xml:space="preserve">
+    <value>textBox_BUILD_AaptPath</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_AaptPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_AaptPath.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_AaptPath.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="textBox_BUILD_FrameDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="textBox_BUILD_FrameDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 93</value>
+  </data>
+  <data name="textBox_BUILD_FrameDir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="textBox_BUILD_FrameDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 22</value>
+  </data>
+  <data name="textBox_BUILD_FrameDir.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_FrameDir.Name" xml:space="preserve">
+    <value>textBox_BUILD_FrameDir</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_FrameDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_FrameDir.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;textBox_BUILD_FrameDir.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="checkBox_BUILD_UseFramework.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox_BUILD_UseFramework.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox_BUILD_UseFramework.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 96</value>
+  </data>
+  <data name="checkBox_BUILD_UseFramework.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 17</value>
+  </data>
+  <data name="checkBox_BUILD_UseFramework.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkBox_BUILD_UseFramework.Text" xml:space="preserve">
+    <value>Uses framework files located in:</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Name" xml:space="preserve">
+    <value>checkBox_BUILD_UseFramework</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Parent" xml:space="preserve">
+    <value>groupBox_BUILD_Options</value>
+  </data>
+  <data name="&gt;&gt;checkBox_BUILD_UseFramework.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="groupBox_BUILD_Options.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="groupBox_BUILD_Options.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="groupBox_BUILD_Options.Size" type="System.Drawing.Size, System.Drawing">
+    <value>577, 358</value>
+  </data>
+  <data name="groupBox_BUILD_Options.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="groupBox_BUILD_Options.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
   <data name="&gt;&gt;groupBox_BUILD_Options.Name" xml:space="preserve">
     <value>groupBox_BUILD_Options</value>
   </data>
@@ -612,27 +1245,6 @@
   <data name="&gt;&gt;tabPageBaksmali.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="overrideAbiComboBox.Items" xml:space="preserve">
-    <value>arm64-v8a</value>
-  </data>
-  <data name="overrideAbiComboBox.Items1" xml:space="preserve">
-    <value>armeabi-v7a</value>
-  </data>
-  <data name="overrideAbiComboBox.Items2" xml:space="preserve">
-    <value>x86</value>
-  </data>
-  <data name="overrideAbiComboBox.Items3" xml:space="preserve">
-    <value>x86_64</value>
-  </data>
-  <data name="overrideAbiComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 46</value>
-  </data>
-  <data name="overrideAbiComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="overrideAbiComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
   <data name="&gt;&gt;overrideAbiComboBox.Name" xml:space="preserve">
     <value>overrideAbiComboBox</value>
   </data>
@@ -644,21 +1256,6 @@
   </data>
   <data name="&gt;&gt;overrideAbiComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="selAdbDeviceLbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="selAdbDeviceLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 6</value>
-  </data>
-  <data name="selAdbDeviceLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 15</value>
-  </data>
-  <data name="selAdbDeviceLbl.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="selAdbDeviceLbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopRight</value>
   </data>
   <data name="&gt;&gt;selAdbDeviceLbl.Name" xml:space="preserve">
     <value>selAdbDeviceLbl</value>
@@ -672,24 +1269,6 @@
   <data name="&gt;&gt;selAdbDeviceLbl.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label33.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label33.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 7</value>
-  </data>
-  <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 13</value>
-  </data>
-  <data name="label33.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="label33.Text" xml:space="preserve">
-    <value>Selected device: </value>
-  </data>
   <data name="&gt;&gt;label33.Name" xml:space="preserve">
     <value>label33</value>
   </data>
@@ -701,21 +1280,6 @@
   </data>
   <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="killAdbBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="killAdbBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 101</value>
-  </data>
-  <data name="killAdbBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
-  </data>
-  <data name="killAdbBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="killAdbBtn.Text" xml:space="preserve">
-    <value>Kill adb process</value>
   </data>
   <data name="&gt;&gt;killAdbBtn.Name" xml:space="preserve">
     <value>killAdbBtn</value>
@@ -729,24 +1293,6 @@
   <data name="&gt;&gt;killAdbBtn.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="installApkBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="installApkBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="installApkBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>426, 101</value>
-  </data>
-  <data name="installApkBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 23</value>
-  </data>
-  <data name="installApkBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="installApkBtn.Text" xml:space="preserve">
-    <value>Install APK</value>
-  </data>
   <data name="&gt;&gt;installApkBtn.Name" xml:space="preserve">
     <value>installApkBtn</value>
   </data>
@@ -758,21 +1304,6 @@
   </data>
   <data name="&gt;&gt;installApkBtn.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="refreshDevicesBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="refreshDevicesBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 101</value>
-  </data>
-  <data name="refreshDevicesBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
-  </data>
-  <data name="refreshDevicesBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="refreshDevicesBtn.Text" xml:space="preserve">
-    <value>Refresh</value>
   </data>
   <data name="&gt;&gt;refreshDevicesBtn.Name" xml:space="preserve">
     <value>refreshDevicesBtn</value>
@@ -786,27 +1317,6 @@
   <data name="&gt;&gt;refreshDevicesBtn.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="selApkAdbBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="selApkAdbBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>System</value>
-  </data>
-  <data name="selApkAdbBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="selApkAdbBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>552, 71</value>
-  </data>
-  <data name="selApkAdbBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 24</value>
-  </data>
-  <data name="selApkAdbBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="selApkAdbBtn.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
   <data name="&gt;&gt;selApkAdbBtn.Name" xml:space="preserve">
     <value>selApkAdbBtn</value>
   </data>
@@ -818,24 +1328,6 @@
   </data>
   <data name="&gt;&gt;selApkAdbBtn.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="overrideAbiCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="overrideAbiCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="overrideAbiCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 48</value>
-  </data>
-  <data name="overrideAbiCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 17</value>
-  </data>
-  <data name="overrideAbiCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="overrideAbiCheckBox.Text" xml:space="preserve">
-    <value>Override platform's default ABI: </value>
   </data>
   <data name="&gt;&gt;overrideAbiCheckBox.Name" xml:space="preserve">
     <value>overrideAbiCheckBox</value>
@@ -849,24 +1341,6 @@
   <data name="&gt;&gt;overrideAbiCheckBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="setVendorChkBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="setVendorChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="setVendorChkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 26</value>
-  </data>
-  <data name="setVendorChkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>267, 17</value>
-  </data>
-  <data name="setVendorChkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="setVendorChkBox.Text" xml:space="preserve">
-    <value>Set vendor to Play Store (com.android.vending)</value>
-  </data>
   <data name="&gt;&gt;setVendorChkBox.Name" xml:space="preserve">
     <value>setVendorChkBox</value>
   </data>
@@ -878,18 +1352,6 @@
   </data>
   <data name="&gt;&gt;setVendorChkBox.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="apkPathAdbTxtBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="apkPathAdbTxtBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 72</value>
-  </data>
-  <data name="apkPathAdbTxtBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 22</value>
-  </data>
-  <data name="apkPathAdbTxtBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;apkPathAdbTxtBox.Name" xml:space="preserve">
     <value>apkPathAdbTxtBox</value>
@@ -903,24 +1365,6 @@
   <data name="&gt;&gt;apkPathAdbTxtBox.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="label32.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label32.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 77</value>
-  </data>
-  <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
-  </data>
-  <data name="label32.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label32.Text" xml:space="preserve">
-    <value>Selected APK: </value>
-  </data>
   <data name="&gt;&gt;label32.Name" xml:space="preserve">
     <value>label32</value>
   </data>
@@ -932,18 +1376,6 @@
   </data>
   <data name="&gt;&gt;label32.ZOrder" xml:space="preserve">
     <value>10</value>
-  </data>
-  <data name="devicesListBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="devicesListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 130</value>
-  </data>
-  <data name="devicesListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>579, 173</value>
-  </data>
-  <data name="devicesListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;devicesListBox.Name" xml:space="preserve">
     <value>devicesListBox</value>
@@ -4626,903 +5058,6 @@
   <data name="&gt;&gt;checkBox_DECODE_NoDebugInfo.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.Name" xml:space="preserve">
-    <value>comJobsLvlUpDown</value>
-  </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.Name" xml:space="preserve">
-    <value>checkBox4</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Name" xml:space="preserve">
-    <value>checkBox_BUILD_NetSecConf</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.Name" xml:space="preserve">
-    <value>useAapt2ChkBox</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.Name" xml:space="preserve">
-    <value>buildApiLvlUpDown</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.Name" xml:space="preserve">
-    <value>buildSetApiLvlChkBox</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.Name" xml:space="preserve">
-    <value>createUnsignApkChkBox</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.Name" xml:space="preserve">
-    <value>signAfterBuildChkBox</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.Name" xml:space="preserve">
-    <value>zipalignAfterBuildChkBox</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Name" xml:space="preserve">
-    <value>checkBox_BUILD_NoCrunch</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Name" xml:space="preserve">
-    <value>button_BUILD_BrowseOutputAppPath</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Name" xml:space="preserve">
-    <value>checkBox_BUILD_ForceAll</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Name" xml:space="preserve">
-    <value>button_BUILD_BrowseFrameDir</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Name" xml:space="preserve">
-    <value>button_BUILD_BrowseAaptPath</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Name" xml:space="preserve">
-    <value>checkBox_BUILD_OutputAppPath</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Name" xml:space="preserve">
-    <value>checkBox_BUILD_CopyOriginal</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Name" xml:space="preserve">
-    <value>textBox_BUILD_OutputAppPath</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Name" xml:space="preserve">
-    <value>checkBox_BUILD_UseAapt</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.Name" xml:space="preserve">
-    <value>textBox_BUILD_AaptPath</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.Name" xml:space="preserve">
-    <value>textBox_BUILD_FrameDir</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Name" xml:space="preserve">
-    <value>checkBox_BUILD_UseFramework</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="groupBox_BUILD_Options.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="groupBox_BUILD_Options.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="groupBox_BUILD_Options.Size" type="System.Drawing.Size, System.Drawing">
-    <value>577, 358</value>
-  </data>
-  <data name="groupBox_BUILD_Options.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="groupBox_BUILD_Options.Text" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="&gt;&gt;groupBox_BUILD_Options.Name" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;groupBox_BUILD_Options.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox_BUILD_Options.Parent" xml:space="preserve">
-    <value>tabPageBuild</value>
-  </data>
-  <data name="&gt;&gt;groupBox_BUILD_Options.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="comJobsLvlUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 321</value>
-  </data>
-  <data name="comJobsLvlUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 22</value>
-  </data>
-  <data name="comJobsLvlUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.Name" xml:space="preserve">
-    <value>comJobsLvlUpDown</value>
-  </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;comJobsLvlUpDown.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="checkBox4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 323</value>
-  </data>
-  <data name="checkBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 17</value>
-  </data>
-  <data name="checkBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="checkBox4.Text" xml:space="preserve">
-    <value>Set the number of threads to use.</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.Name" xml:space="preserve">
-    <value>checkBox4</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="checkBox_BUILD_NetSecConf.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox_BUILD_NetSecConf.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_BUILD_NetSecConf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 172</value>
-  </data>
-  <data name="checkBox_BUILD_NetSecConf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>376, 17</value>
-  </data>
-  <data name="checkBox_BUILD_NetSecConf.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="checkBox_BUILD_NetSecConf.Text" xml:space="preserve">
-    <value>Add a generic Network Security Configuration file in the output APK</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Name" xml:space="preserve">
-    <value>checkBox_BUILD_NetSecConf</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NetSecConf.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="useAapt2ChkBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="useAapt2ChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="useAapt2ChkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 273</value>
-  </data>
-  <data name="useAapt2ChkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>353, 17</value>
-  </data>
-  <data name="useAapt2ChkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="useAapt2ChkBox.Text" xml:space="preserve">
-    <value>Use aapt2 (Upgrades apktool to use experimental aapt2 binary.)</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.Name" xml:space="preserve">
-    <value>useAapt2ChkBox</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;useAapt2ChkBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="buildApiLvlUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>492, 17</value>
-  </data>
-  <data name="buildApiLvlUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 22</value>
-  </data>
-  <data name="buildApiLvlUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.Name" xml:space="preserve">
-    <value>buildApiLvlUpDown</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;buildApiLvlUpDown.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="buildSetApiLvlChkBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="buildSetApiLvlChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buildSetApiLvlChkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 20</value>
-  </data>
-  <data name="buildSetApiLvlChkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 17</value>
-  </data>
-  <data name="buildSetApiLvlChkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="buildSetApiLvlChkBox.Text" xml:space="preserve">
-    <value>Set API level of the file to generate, e.g. 14 for ICS.</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.Name" xml:space="preserve">
-    <value>buildSetApiLvlChkBox</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;buildSetApiLvlChkBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="createUnsignApkChkBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="createUnsignApkChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="createUnsignApkChkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 247</value>
-  </data>
-  <data name="createUnsignApkChkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 17</value>
-  </data>
-  <data name="createUnsignApkChkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="createUnsignApkChkBox.Text" xml:space="preserve">
-    <value>Create unsigned APK with original signature after build</value>
-  </data>
-  <data name="createUnsignApkChkBox.ToolTip" xml:space="preserve">
-    <value>Only compatible with Core Patch module. Rooted device is required.</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.Name" xml:space="preserve">
-    <value>createUnsignApkChkBox</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;createUnsignApkChkBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="signAfterBuildChkBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="signAfterBuildChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="signAfterBuildChkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 222</value>
-  </data>
-  <data name="signAfterBuildChkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 17</value>
-  </data>
-  <data name="signAfterBuildChkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="signAfterBuildChkBox.Text" xml:space="preserve">
-    <value>Sign after build / zipalign</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.Name" xml:space="preserve">
-    <value>signAfterBuildChkBox</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;signAfterBuildChkBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="zipalignAfterBuildChkBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="zipalignAfterBuildChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="zipalignAfterBuildChkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 197</value>
-  </data>
-  <data name="zipalignAfterBuildChkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 17</value>
-  </data>
-  <data name="zipalignAfterBuildChkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="zipalignAfterBuildChkBox.Text" xml:space="preserve">
-    <value>Zipalign after build</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.Name" xml:space="preserve">
-    <value>zipalignAfterBuildChkBox</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;zipalignAfterBuildChkBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="checkBox_BUILD_NoCrunch.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox_BUILD_NoCrunch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_BUILD_NoCrunch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 147</value>
-  </data>
-  <data name="checkBox_BUILD_NoCrunch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 17</value>
-  </data>
-  <data name="checkBox_BUILD_NoCrunch.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="checkBox_BUILD_NoCrunch.Text" xml:space="preserve">
-    <value>Disable crunching of resource files during the build step.</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Name" xml:space="preserve">
-    <value>checkBox_BUILD_NoCrunch</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_NoCrunch.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="button_BUILD_BrowseOutputAppPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="button_BUILD_BrowseOutputAppPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button_BUILD_BrowseOutputAppPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 118</value>
-  </data>
-  <data name="button_BUILD_BrowseOutputAppPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 1</value>
-  </data>
-  <data name="button_BUILD_BrowseOutputAppPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 24</value>
-  </data>
-  <data name="button_BUILD_BrowseOutputAppPath.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="button_BUILD_BrowseOutputAppPath.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Name" xml:space="preserve">
-    <value>button_BUILD_BrowseOutputAppPath</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseOutputAppPath.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="checkBox_BUILD_ForceAll.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox_BUILD_ForceAll.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_BUILD_ForceAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 45</value>
-  </data>
-  <data name="checkBox_BUILD_ForceAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 17</value>
-  </data>
-  <data name="checkBox_BUILD_ForceAll.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="checkBox_BUILD_ForceAll.Text" xml:space="preserve">
-    <value>Skip changes detection and build all files.</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Name" xml:space="preserve">
-    <value>checkBox_BUILD_ForceAll</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_ForceAll.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="button_BUILD_BrowseFrameDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="button_BUILD_BrowseFrameDir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button_BUILD_BrowseFrameDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 92</value>
-  </data>
-  <data name="button_BUILD_BrowseFrameDir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 1</value>
-  </data>
-  <data name="button_BUILD_BrowseFrameDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 24</value>
-  </data>
-  <data name="button_BUILD_BrowseFrameDir.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="button_BUILD_BrowseFrameDir.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Name" xml:space="preserve">
-    <value>button_BUILD_BrowseFrameDir</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseFrameDir.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="button_BUILD_BrowseAaptPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="button_BUILD_BrowseAaptPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button_BUILD_BrowseAaptPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 66</value>
-  </data>
-  <data name="button_BUILD_BrowseAaptPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 1</value>
-  </data>
-  <data name="button_BUILD_BrowseAaptPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 24</value>
-  </data>
-  <data name="button_BUILD_BrowseAaptPath.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="button_BUILD_BrowseAaptPath.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Name" xml:space="preserve">
-    <value>button_BUILD_BrowseAaptPath</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;button_BUILD_BrowseAaptPath.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="checkBox_BUILD_OutputAppPath.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox_BUILD_OutputAppPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_BUILD_OutputAppPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 122</value>
-  </data>
-  <data name="checkBox_BUILD_OutputAppPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 17</value>
-  </data>
-  <data name="checkBox_BUILD_OutputAppPath.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkBox_BUILD_OutputAppPath.Text" xml:space="preserve">
-    <value>APK output directory:</value>
-  </data>
-  <data name="checkBox_BUILD_OutputAppPath.ToolTip" xml:space="preserve">
-    <value>Output directory will be used for Zipalign and Signing too after compile</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Name" xml:space="preserve">
-    <value>checkBox_BUILD_OutputAppPath</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_OutputAppPath.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="checkBox_BUILD_CopyOriginal.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox_BUILD_CopyOriginal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_BUILD_CopyOriginal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 298</value>
-  </data>
-  <data name="checkBox_BUILD_CopyOriginal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 17</value>
-  </data>
-  <data name="checkBox_BUILD_CopyOriginal.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkBox_BUILD_CopyOriginal.Text" xml:space="preserve">
-    <value>Copy original AndroidManifest.xml and META-INF folder</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Name" xml:space="preserve">
-    <value>checkBox_BUILD_CopyOriginal</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_CopyOriginal.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="textBox_BUILD_OutputAppPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="textBox_BUILD_OutputAppPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 119</value>
-  </data>
-  <data name="textBox_BUILD_OutputAppPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="textBox_BUILD_OutputAppPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 22</value>
-  </data>
-  <data name="textBox_BUILD_OutputAppPath.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Name" xml:space="preserve">
-    <value>textBox_BUILD_OutputAppPath</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_OutputAppPath.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="checkBox_BUILD_UseAapt.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox_BUILD_UseAapt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_BUILD_UseAapt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 69</value>
-  </data>
-  <data name="checkBox_BUILD_UseAapt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 17</value>
-  </data>
-  <data name="checkBox_BUILD_UseAapt.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkBox_BUILD_UseAapt.Text" xml:space="preserve">
-    <value>Uses aapt.exe located in:</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Name" xml:space="preserve">
-    <value>checkBox_BUILD_UseAapt</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseAapt.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="textBox_BUILD_AaptPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="textBox_BUILD_AaptPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 67</value>
-  </data>
-  <data name="textBox_BUILD_AaptPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="textBox_BUILD_AaptPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 22</value>
-  </data>
-  <data name="textBox_BUILD_AaptPath.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.Name" xml:space="preserve">
-    <value>textBox_BUILD_AaptPath</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_AaptPath.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="textBox_BUILD_FrameDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="textBox_BUILD_FrameDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 93</value>
-  </data>
-  <data name="textBox_BUILD_FrameDir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="textBox_BUILD_FrameDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 22</value>
-  </data>
-  <data name="textBox_BUILD_FrameDir.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.Name" xml:space="preserve">
-    <value>textBox_BUILD_FrameDir</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;textBox_BUILD_FrameDir.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="checkBox_BUILD_UseFramework.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox_BUILD_UseFramework.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_BUILD_UseFramework.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 96</value>
-  </data>
-  <data name="checkBox_BUILD_UseFramework.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 17</value>
-  </data>
-  <data name="checkBox_BUILD_UseFramework.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkBox_BUILD_UseFramework.Text" xml:space="preserve">
-    <value>Uses framework files located in:</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Name" xml:space="preserve">
-    <value>checkBox_BUILD_UseFramework</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.Parent" xml:space="preserve">
-    <value>groupBox_BUILD_Options</value>
-  </data>
-  <data name="&gt;&gt;checkBox_BUILD_UseFramework.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
   <data name="&gt;&gt;checkBox2.Name" xml:space="preserve">
     <value>checkBox2</value>
   </data>
@@ -8372,6 +7907,351 @@
   </data>
   <data name="&gt;&gt;baksmaliBrowseInputDexTxtBox.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="overrideAbiComboBox.Items" xml:space="preserve">
+    <value>arm64-v8a</value>
+  </data>
+  <data name="overrideAbiComboBox.Items1" xml:space="preserve">
+    <value>armeabi-v7a</value>
+  </data>
+  <data name="overrideAbiComboBox.Items2" xml:space="preserve">
+    <value>x86</value>
+  </data>
+  <data name="overrideAbiComboBox.Items3" xml:space="preserve">
+    <value>x86_64</value>
+  </data>
+  <data name="overrideAbiComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 46</value>
+  </data>
+  <data name="overrideAbiComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="overrideAbiComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;overrideAbiComboBox.Name" xml:space="preserve">
+    <value>overrideAbiComboBox</value>
+  </data>
+  <data name="&gt;&gt;overrideAbiComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;overrideAbiComboBox.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;overrideAbiComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="selAdbDeviceLbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="selAdbDeviceLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 6</value>
+  </data>
+  <data name="selAdbDeviceLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 15</value>
+  </data>
+  <data name="selAdbDeviceLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="selAdbDeviceLbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;selAdbDeviceLbl.Name" xml:space="preserve">
+    <value>selAdbDeviceLbl</value>
+  </data>
+  <data name="&gt;&gt;selAdbDeviceLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;selAdbDeviceLbl.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;selAdbDeviceLbl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label33.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label33.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 7</value>
+  </data>
+  <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 13</value>
+  </data>
+  <data name="label33.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="label33.Text" xml:space="preserve">
+    <value>Selected device: </value>
+  </data>
+  <data name="&gt;&gt;label33.Name" xml:space="preserve">
+    <value>label33</value>
+  </data>
+  <data name="&gt;&gt;label33.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label33.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="killAdbBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="killAdbBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 101</value>
+  </data>
+  <data name="killAdbBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="killAdbBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="killAdbBtn.Text" xml:space="preserve">
+    <value>Kill adb process</value>
+  </data>
+  <data name="&gt;&gt;killAdbBtn.Name" xml:space="preserve">
+    <value>killAdbBtn</value>
+  </data>
+  <data name="&gt;&gt;killAdbBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;killAdbBtn.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;killAdbBtn.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="installApkBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="installApkBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="installApkBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>426, 101</value>
+  </data>
+  <data name="installApkBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 23</value>
+  </data>
+  <data name="installApkBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="installApkBtn.Text" xml:space="preserve">
+    <value>Install APK</value>
+  </data>
+  <data name="&gt;&gt;installApkBtn.Name" xml:space="preserve">
+    <value>installApkBtn</value>
+  </data>
+  <data name="&gt;&gt;installApkBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;installApkBtn.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;installApkBtn.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="refreshDevicesBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="refreshDevicesBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 101</value>
+  </data>
+  <data name="refreshDevicesBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="refreshDevicesBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="refreshDevicesBtn.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="&gt;&gt;refreshDevicesBtn.Name" xml:space="preserve">
+    <value>refreshDevicesBtn</value>
+  </data>
+  <data name="&gt;&gt;refreshDevicesBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;refreshDevicesBtn.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;refreshDevicesBtn.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="selApkAdbBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="selApkAdbBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>System</value>
+  </data>
+  <data name="selApkAdbBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="selApkAdbBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>552, 71</value>
+  </data>
+  <data name="selApkAdbBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 24</value>
+  </data>
+  <data name="selApkAdbBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="selApkAdbBtn.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;selApkAdbBtn.Name" xml:space="preserve">
+    <value>selApkAdbBtn</value>
+  </data>
+  <data name="&gt;&gt;selApkAdbBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;selApkAdbBtn.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;selApkAdbBtn.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="overrideAbiCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="overrideAbiCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="overrideAbiCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 48</value>
+  </data>
+  <data name="overrideAbiCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 17</value>
+  </data>
+  <data name="overrideAbiCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="overrideAbiCheckBox.Text" xml:space="preserve">
+    <value>Override platform's default ABI: </value>
+  </data>
+  <data name="&gt;&gt;overrideAbiCheckBox.Name" xml:space="preserve">
+    <value>overrideAbiCheckBox</value>
+  </data>
+  <data name="&gt;&gt;overrideAbiCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;overrideAbiCheckBox.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;overrideAbiCheckBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="setVendorChkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="setVendorChkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="setVendorChkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 26</value>
+  </data>
+  <data name="setVendorChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 17</value>
+  </data>
+  <data name="setVendorChkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="setVendorChkBox.Text" xml:space="preserve">
+    <value>Set vendor to Play Store (com.android.vending)</value>
+  </data>
+  <data name="&gt;&gt;setVendorChkBox.Name" xml:space="preserve">
+    <value>setVendorChkBox</value>
+  </data>
+  <data name="&gt;&gt;setVendorChkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;setVendorChkBox.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;setVendorChkBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="apkPathAdbTxtBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="apkPathAdbTxtBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 72</value>
+  </data>
+  <data name="apkPathAdbTxtBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>323, 22</value>
+  </data>
+  <data name="apkPathAdbTxtBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;apkPathAdbTxtBox.Name" xml:space="preserve">
+    <value>apkPathAdbTxtBox</value>
+  </data>
+  <data name="&gt;&gt;apkPathAdbTxtBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;apkPathAdbTxtBox.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;apkPathAdbTxtBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="label32.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label32.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 77</value>
+  </data>
+  <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 13</value>
+  </data>
+  <data name="label32.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label32.Text" xml:space="preserve">
+    <value>Selected APK: </value>
+  </data>
+  <data name="&gt;&gt;label32.Name" xml:space="preserve">
+    <value>label32</value>
+  </data>
+  <data name="&gt;&gt;label32.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label32.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;label32.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="devicesListBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="devicesListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 130</value>
+  </data>
+  <data name="devicesListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>579, 173</value>
+  </data>
+  <data name="devicesListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;devicesListBox.Name" xml:space="preserve">
+    <value>devicesListBox</value>
+  </data>
+  <data name="&gt;&gt;devicesListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;devicesListBox.Parent" xml:space="preserve">
+    <value>tabPageAdb</value>
+  </data>
+  <data name="&gt;&gt;devicesListBox.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>32, 9</value>
