@@ -1,3 +1,14 @@
+3.3.2.0
+- Remove flickering fix due to tabs flickering in Russian language. I will look into WPF for modern UI instead
+- Updated tools (Apktool, APKEditor, AAPT, etc.) to latest versions
+- Fixed issues that *.zip and *.apkm are not selectable
+- Partially added Japanese language
+- Partially added Turkish language
+- Updated Vietnamese language
+- Updated German language
+
+Note: "Use Aapt2" must be disabled for Apktool 2.12.0 and above
+
 3.3.1.6
 - Fixed APK installation issue (Revert back to DotNetZip but using ProDotNetZip for fixed vulnerability)
 - Update packages
