@@ -11,16 +11,10 @@ body:
           required: true
         - label: I performed a cursory search of the issue tracker on [APK Tool GUI](https://github.com/AndnixSH/APKToolGUI/issues?q=is%3Aissue) to avoid opening a duplicate issue
           required: true
-        - label: I performed a cursory search of the issue tracker on [Apktool] (https://github.com/iBotPeaches/Apktool/issues?q=is%3Aissue) and [Baksmali](https://github.com/JesusFreke/smali/issues?q=is%3Aissue) but did not found an answer
-          required: true
-        - label: I am running the latest version of [APK Tool GUI](https://github.com/AndnixSH/APKToolGUI/releases) and [Apktool.jar](https://github.com/iBotPeaches/Apktool/releases).
-          required: true
-        - label: I have tried to decompile and compile without changing anything.
+        - label: I am running the latest version of [APK Tool GUI](https://github.com/AndnixSH/APKToolGUI/releases).
           required: true
         - label: I have read the [FAQ](https://github.com/AndnixSH/APKToolGUI#faq)
           required: true
-        - label: I have checked using [APKiD](https://github.com/rednaga/APKiD) and verified that the app does not have protection(s) like packer, obfuscation, anti-tamper, anti-cheats etc
-          required: false
 
   - type: textarea
     attributes:
