@@ -7,8 +7,10 @@ using APKToolGUI.Utils;
 
 namespace APKToolGUI
 {
-    public class Baksmali : JarProcess
+    public class Baksmali : JarProcess, IDisposable
     {
+        private bool disposed = false;
+
         public new event BaksmaliExitedEventHandler Exited;
 
         string _jarPath;
@@ -79,7 +81,18 @@ namespace APKToolGUI
                     }
                 }
             }
-            catch { }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine($"[Baksmali] Process already exited: {ex.Message}");
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                Debug.WriteLine($"[Baksmali] Failed to access process: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[Baksmali] Failed to cancel process: {ex.Message}");
+            }
         }
 
         public int Disassemble(string input, string output)
@@ -98,6 +111,40 @@ namespace APKToolGUI
             CancelOutputRead();
             CancelErrorRead();
             return ExitCode;
+        }
+
+        public new void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    try
+                    {
+                        Cancel();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[Baksmali] Error during disposal: {ex.Message}");
+                    }
+                    finally
+                    {
+                        base.Dispose();
+                    }
+                }
+                disposed = true;
+            }
+        }
+
+        ~Baksmali()
+        {
+            Dispose(false);
         }
     }
 

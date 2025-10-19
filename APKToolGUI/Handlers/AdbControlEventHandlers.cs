@@ -16,25 +16,25 @@ namespace APKToolGUI.Handlers
         public AdbControlEventHandlers(FormMain Main)
         {
             main = Main;
-            main.killAdbBtn.Click += killAdbBtn_Click;
-            main.installApkBtn.Click += installApkBtn_Click;
-            main.refreshDevicesBtn.Click += refreshDevicesBtn_Click;
-            main.selApkAdbBtn.Click += selApkAdbBtn_Click;
-            main.devicesListBox.SelectedValueChanged += devicesListBox_SelectedValueChanged;
-            main.overrideAbiComboBox.SelectedIndexChanged += ComboBoxChanged;
+            main.killAdbBtn.Click += KillAdbBtn_Click;
+            main.installApkBtn.Click += InstallApkBtn_Click;
+            main.refreshDevicesBtn.Click += RefreshDevicesBtn_Click;
+            main.selApkAdbBtn.Click += SelApkAdbBtn_Click;
+            main.devicesListBox.SelectedValueChanged += DevicesListBox_SelectedValueChanged;
+            main.overrideAbiComboBox.SelectedIndexChanged += OverrideAbiComboBox_SelectedIndexChanged;
         }
 
-        private void ComboBoxChanged(object sender, EventArgs e)
+        private void OverrideAbiComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.Adb_OverrideAbi = main.overrideAbiComboBox.SelectedIndex;
         }
 
-        private async void refreshDevicesBtn_Click(object sender, EventArgs e)
+        private async void RefreshDevicesBtn_Click(object sender, EventArgs e)
         {
             await main.ListDevices();
         }
 
-        private async void killAdbBtn_Click(object sender, EventArgs e)
+        private async void KillAdbBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Language.ConfirmKillingAdbServer, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -43,7 +43,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private async void installApkBtn_Click(object sender, EventArgs e)
+        private async void InstallApkBtn_Click(object sender, EventArgs e)
         {
             string inputFile = main.apkPathAdbTxtBox.Text;
             if (File.Exists(inputFile))
@@ -54,7 +54,7 @@ namespace APKToolGUI.Handlers
                 MessageBox.Show(Language.ErrorSelectedFileNotExist, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void selApkAdbBtn_Click(object sender, EventArgs e)
+        private void SelApkAdbBtn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -65,7 +65,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private void devicesListBox_SelectedValueChanged(object sender, EventArgs e)
+        private void DevicesListBox_SelectedValueChanged(object sender, EventArgs e)
         {
             main.ToLog(ApktoolEventType.None, String.Format(Language.DeviceSelected, main.devicesListBox.SelectedItem));
             main.selAdbDeviceLbl.Text = main.devicesListBox.GetItemText(main.devicesListBox.SelectedItem);

@@ -7,8 +7,10 @@ using System.IO.Packaging;
 
 namespace APKToolGUI
 {
-    public class Signapk : JarProcess
+    public class Signapk : JarProcess, IDisposable
     {
+        private bool disposed = false;
+
         public new event SignapkExitedEventHandler Exited;
 
         private string lastSourceApk;
@@ -82,7 +84,18 @@ namespace APKToolGUI
                     }
                 }
             }
-            catch { }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine($"[Signapk] Process already exited: {ex.Message}");
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                Debug.WriteLine($"[Signapk] Failed to access process: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[Signapk] Failed to cancel process: {ex.Message}");
+            }
         }
 
         public int Sign(string input, string output)
@@ -151,6 +164,40 @@ namespace APKToolGUI
                 apktoolJar.WaitForExit();
                 return version;
             }
+        }
+
+        public new void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    try
+                    {
+                        Cancel();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[Signapk] Error during disposal: {ex.Message}");
+                    }
+                    finally
+                    {
+                        base.Dispose();
+                    }
+                }
+                disposed = true;
+            }
+        }
+
+        ~Signapk()
+        {
+            Dispose(false);
         }
     }
 

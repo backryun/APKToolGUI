@@ -64,8 +64,14 @@ namespace APKToolGUI.Utils
                 if (text.Length < 1) return text;
                 return text.Remove(text.ToString().LastIndexOf(character), character.Length);
             }
-            catch
+            catch (ArgumentOutOfRangeException ex)
             {
+                Debug.WriteLine($"[StringExt] Character not found in text: {ex.Message}");
+                return text;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[StringExt] Failed to remove last character: {ex.Message}");
                 return text;
             }
         }

@@ -8,8 +8,10 @@ using System.Windows.Forms;
 
 namespace APKToolGUI
 {
-    public class ApkEditor : JarProcess
+    public class ApkEditor : JarProcess, IDisposable
     {
+        private bool disposed = false;
+
         public new event ApkEditorExitedEventHandler Exited;
 
         string _jarPath;
@@ -79,7 +81,18 @@ namespace APKToolGUI
                     }
                 }
             }
-            catch { }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine($"[ApkEditor] Process already exited: {ex.Message}");
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                Debug.WriteLine($"[ApkEditor] Failed to access process: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[ApkEditor] Failed to cancel process: {ex.Message}");
+            }
         }
 
         public int Merge(string input, string output)
@@ -157,6 +170,40 @@ namespace APKToolGUI
                 jar.WaitForExit(3000);
                 return version.Replace("\r\n", "");
             }
+        }
+
+        public new void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    try
+                    {
+                        Cancel();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[ApkEditor] Error during disposal: {ex.Message}");
+                    }
+                    finally
+                    {
+                        base.Dispose();
+                    }
+                }
+                disposed = true;
+            }
+        }
+
+        ~ApkEditor()
+        {
+            Dispose(false);
         }
     }
 

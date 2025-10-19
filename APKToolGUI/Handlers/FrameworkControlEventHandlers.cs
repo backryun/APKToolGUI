@@ -20,14 +20,14 @@ namespace APKToolGUI.Handlers
         public FrameworkControlEventHandlers(FormMain Main)
         {
             main = Main;
-            main.button_IF_BrowseFrameDir.Click += button_IF_BrowseFrameDir_Click;
-            main.button_IF_BrowseInputFramePath.Click += button_IF_BrowseInputFramePath_Click;
-            main.button_IF_InstallFramework.Click += button_IF_InstallFramework_Click;
-            main.clearFwBtn.Click += clearFwBtn_Click;
-            main.openFwFolderBtn.Click += openFwFolderBtn_Click;
+            main.button_IF_BrowseFrameDir.Click += Button_IF_BrowseFrameDir_Click;
+            main.button_IF_BrowseInputFramePath.Click += Button_IF_BrowseInputFramePath_Click;
+            main.button_IF_InstallFramework.Click += Button_IF_InstallFramework_Click;
+            main.clearFwBtn.Click += ClearFwBtn_Click;
+            main.openFwFolderBtn.Click += OpenFwFolderBtn_Click;
         }
 
-        internal void button_IF_BrowseFrameDir_Click(object sender, EventArgs e)
+        internal void Button_IF_BrowseFrameDir_Click(object sender, EventArgs e)
         {
             main.clearFwBeforeDecodeChkBox.Checked = false;
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
@@ -39,7 +39,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_IF_BrowseInputFramePath_Click(object sender, EventArgs e)
+        internal void Button_IF_BrowseInputFramePath_Click(object sender, EventArgs e)
         {
             main.clearFwBeforeDecodeChkBox.Checked = false;
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -56,7 +56,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_IF_InstallFramework_Click(object sender, EventArgs e)
+        internal async void Button_IF_InstallFramework_Click(object sender, EventArgs e)
         {
             if (main.checkBox_IF_FramePath.Checked)
             {
@@ -89,14 +89,14 @@ namespace APKToolGUI.Handlers
             });
         }
 
-        internal async void clearFwBtn_Click(object sender, EventArgs e)
+        internal async void ClearFwBtn_Click(object sender, EventArgs e)
         {
             main.Running(Language.ClearingFramework);
 
             await main.ClearFramework();
         }
 
-        internal void openFwFolderBtn_Click(object sender, EventArgs e)
+        internal void OpenFwFolderBtn_Click(object sender, EventArgs e)
         {
             if (main.checkBox_IF_FramePath.Checked && Directory.Exists(main.textBox_IF_FrameDir.Text))
                 Process.Start("explorer.exe", main.textBox_IF_FrameDir.Text);

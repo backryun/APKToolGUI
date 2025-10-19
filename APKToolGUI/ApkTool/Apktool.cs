@@ -11,8 +11,10 @@ using Java;
 
 namespace APKToolGUI
 {
-    public class Apktool : JarProcess
+    public class Apktool : JarProcess, IDisposable
     {
+        private bool disposed = false;
+
         enum ApktoolActionType
         {
             Decompile,
@@ -168,9 +170,17 @@ namespace APKToolGUI
                     }
                 }
             }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine($"[Apktool] Process already exited: {ex.Message}");
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                Debug.WriteLine($"[Apktool] Failed to access process: {ex.Message}");
+            }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine($"[Apktool] Failed to cancel process: {ex.Message}");
             }
         }
 
@@ -273,6 +283,40 @@ namespace APKToolGUI
                 apktoolJar.WaitForExit(3000);
                 return version.Replace("\r\n", "");
             }
+        }
+
+        public new void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    try
+                    {
+                        Cancel();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[Apktool] Error during disposal: {ex.Message}");
+                    }
+                    finally
+                    {
+                        base.Dispose();
+                    }
+                }
+                disposed = true;
+            }
+        }
+
+        ~Apktool()
+        {
+            Dispose(false);
         }
     }
 

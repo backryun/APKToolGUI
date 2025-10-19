@@ -19,12 +19,12 @@ namespace APKToolGUI.Handlers
         public SmaliControlEventHandlers(FormMain Main)
         {
             main = Main;
-            main.smaliBrowseOutputBtn.Click += smaliBrowseOutputBtn_Click;
-            main.smaliBrowseInputDirBtn.Click += smaliBrowseInputDirBtn_Click;
-            main.comSmaliBtn.Click += comSmaliBtn_Click;
+            main.smaliBrowseOutputBtn.Click += SmaliBrowseOutputBtn_Click;
+            main.smaliBrowseInputDirBtn.Click += SmaliBrowseInputDirBtn_Click;
+            main.comSmaliBtn.Click += ComSmaliBtn_Click;
         }
 
-        internal void smaliBrowseOutputBtn_Click(object sender, EventArgs e)
+        internal void SmaliBrowseOutputBtn_Click(object sender, EventArgs e)
         {
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
             dlg.ShowNewFolderButton = true;
@@ -35,7 +35,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void smaliBrowseInputDirBtn_Click(object sender, EventArgs e)
+        internal void SmaliBrowseInputDirBtn_Click(object sender, EventArgs e)
         {
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
             dlg.ShowNewFolderButton = true;
@@ -46,7 +46,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void comSmaliBtn_Click(object sender, EventArgs e)
+        internal async void ComSmaliBtn_Click(object sender, EventArgs e)
         {
             if (main.smaliUseOutputChkBox.Checked)
             {

@@ -18,24 +18,24 @@ namespace APKToolGUI.Handlers
         public MenuItemHandlers(FormMain Main)
         {
             main = Main;
-            main.saveLogToFileToolStripMenuItem.Click += saveLogItem_Click;
-            main.settingsToolStripMenuItem.Click += menuItemSettings_Click;
-            main.exitToolStripMenuItem.Click += menuItemExit_Click;
-            main.openTempFolderToolStripMenuItem.Click += openTempFolderToolStripMenuItem_Click;
-            main.checkForUpdateToolStripMenuItem.Click += menuItemCheckUpdate_Click;
-            main.aboutToolStripMenuItem.Click += menuItemAbout_Click;
-            main.apktoolIssuesToolStripMenuItem.Click += apktoolIssuesLinkItem_Click;
-            main.baksmaliIssuesToolStripMenuItem.Click += baksmaliIssuesLinkItem_Click;
-            main.reportAnIsuueToolStripMenuItem.Click += reportAnIsuueToolStripMenuItem_Click;
-            main.newInsToolStripMenuItem.Click += newInsToolStripMenuItem_Click;
+            main.saveLogToFileToolStripMenuItem.Click += SaveLogItem_Click;
+            main.settingsToolStripMenuItem.Click += MenuItemSettings_Click;
+            main.exitToolStripMenuItem.Click += MenuItemExit_Click;
+            main.openTempFolderToolStripMenuItem.Click += OpenTempFolderToolStripMenuItem_Click;
+            main.checkForUpdateToolStripMenuItem.Click += MenuItemCheckUpdate_Click;
+            main.aboutToolStripMenuItem.Click += MenuItemAbout_Click;
+            main.apktoolIssuesToolStripMenuItem.Click += ApktoolIssuesLinkItem_Click;
+            main.baksmaliIssuesToolStripMenuItem.Click += BaksmaliIssuesLinkItem_Click;
+            main.reportAnIsuueToolStripMenuItem.Click += ReportAnIsuueToolStripMenuItem_Click;
+            main.newInsToolStripMenuItem.Click += NewInsToolStripMenuItem_Click;
         }
 
-        private void newInsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewInsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
 
-        private void saveLogItem_Click(object sender, EventArgs e)
+        private void SaveLogItem_Click(object sender, EventArgs e)
         {
             using (var sfd = new SaveFileDialog())
             {
@@ -50,7 +50,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private void menuItemSettings_Click(object sender, EventArgs e)
+        private void MenuItemSettings_Click(object sender, EventArgs e)
         {
             Theme theme = (Theme)Settings.Default.Theme;
 
@@ -64,12 +64,12 @@ namespace APKToolGUI.Handlers
             frm.ShowDialog();
         }
 
-        private void menuItemExit_Click(object sender, EventArgs e)
+        private void MenuItemExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void openTempFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenTempFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(Program.TEMP_PATH))
                 Process.Start("explorer.exe", Program.TEMP_PATH);
@@ -80,12 +80,12 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private void menuItemCheckUpdate_Click(object sender, EventArgs e)
+        private void MenuItemCheckUpdate_Click(object sender, EventArgs e)
         {
             main.updateCheker.CheckAsync();
         }
 
-        private void menuItemAbout_Click(object sender, EventArgs e)
+        private void MenuItemAbout_Click(object sender, EventArgs e)
         {
             Theme theme = (Theme)Settings.Default.Theme;
 
@@ -98,17 +98,17 @@ namespace APKToolGUI.Handlers
             frm.ShowDialog();
         }
 
-        private void apktoolIssuesLinkItem_Click(object sender, EventArgs e)
+        private void ApktoolIssuesLinkItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/iBotPeaches/Apktool/issues?q=is%3Aissue");
         }
 
-        private void baksmaliIssuesLinkItem_Click(object sender, EventArgs e)
+        private void BaksmaliIssuesLinkItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/JesusFreke/smali/issues?q=is%3Aissue");
         }
 
-        private void reportAnIsuueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ReportAnIsuueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/AndnixSH/APKToolGUI/issues/new/choose");
         }

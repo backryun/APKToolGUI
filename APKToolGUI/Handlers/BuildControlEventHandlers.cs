@@ -21,14 +21,14 @@ namespace APKToolGUI.Handlers
         public BuildControlEventHandlers(FormMain Main)
         {
             main = Main;
-            main.button_BUILD_BrowseAaptPath.Click += button_BUILD_BrowseAaptPath_Click;
-            main.button_BUILD_BrowseFrameDir.Click += button_BUILD_BrowseFrameDir_Click;
-            main.button_BUILD_BrowseOutputAppPath.Click += button_BUILD_BrowseOutputAppPath_Click;
-            main.button_BUILD_BrowseInputProjectDir.Click += button_BUILD_BrowseInputProjectDir_Click;
-            main.button_BUILD_Build.Click += button_BUILD_Build_Click;
+            main.button_BUILD_BrowseAaptPath.Click += Button_BUILD_BrowseAaptPath_Click;
+            main.button_BUILD_BrowseFrameDir.Click += Button_BUILD_BrowseFrameDir_Click;
+            main.button_BUILD_BrowseOutputAppPath.Click += Button_BUILD_BrowseOutputAppPath_Click;
+            main.button_BUILD_BrowseInputProjectDir.Click += Button_BUILD_BrowseInputProjectDir_Click;
+            main.button_BUILD_Build.Click += Button_BUILD_Build_Click;
         }
 
-        internal void button_BUILD_BrowseAaptPath_Click(object sender, EventArgs e)
+        internal void Button_BUILD_BrowseAaptPath_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -43,7 +43,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_BUILD_BrowseFrameDir_Click(object sender, EventArgs e)
+        internal void Button_BUILD_BrowseFrameDir_Click(object sender, EventArgs e)
         {
             using (VistaFolderBrowserDialog fbd = new VistaFolderBrowserDialog())
             {
@@ -54,7 +54,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_BUILD_BrowseOutputAppPath_Click(object sender, EventArgs e)
+        internal void Button_BUILD_BrowseOutputAppPath_Click(object sender, EventArgs e)
         {
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
             dlg.ShowNewFolderButton = true;
@@ -65,7 +65,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_BUILD_BrowseInputProjectDir_Click(object sender, EventArgs e)
+        internal void Button_BUILD_BrowseInputProjectDir_Click(object sender, EventArgs e)
         {
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
             dlg.ShowNewFolderButton = true;
@@ -76,7 +76,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_BUILD_Build_Click(object sender, EventArgs e)
+        internal async void Button_BUILD_Build_Click(object sender, EventArgs e)
         {
             string decApkDir = main.textBox_BUILD_InputProjectDir.Text;
             if (Directory.Exists(main.textBox_BUILD_InputProjectDir.Text))

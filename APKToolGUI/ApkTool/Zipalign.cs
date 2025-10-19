@@ -6,9 +6,11 @@ using System.IO;
 
 namespace APKToolGUI
 {
-    public class Zipalign
+    public class Zipalign : IDisposable
     {
         Process processZipalign;
+        private bool disposed = false;
+
         static class Keys
         {
             public const string CheckOnly = " -c";
@@ -37,10 +39,10 @@ namespace APKToolGUI
             processZipalign = new Process();
             processZipalign.EnableRaisingEvents = true;
             processZipalign.StartInfo.FileName = zipalignFileName;
-            processZipalign.StartInfo.UseShellExecute = false; //отключаем использование оболочки, чтобы можно было читать данные вывода
-            processZipalign.StartInfo.RedirectStandardOutput = true; // разрешаем перенаправление данных вывода
-            processZipalign.StartInfo.RedirectStandardError = true; // разрешаем перенаправление данных вывода
-            processZipalign.StartInfo.CreateNoWindow = true; //запрещаем создавать окно для запускаемой программы
+            processZipalign.StartInfo.UseShellExecute = false; // Disable shell execution to read output data
+            processZipalign.StartInfo.RedirectStandardOutput = true; // Allow output redirection
+            processZipalign.StartInfo.RedirectStandardError = true; // Allow error redirection
+            processZipalign.StartInfo.CreateNoWindow = true; // Do not create window for the launched program
             processZipalign.Exited += processZipalign_Exited;
         }
 
@@ -65,7 +67,52 @@ namespace APKToolGUI
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[Zipalign] Cancel failed: {ex.Message}");
+                // 프로세스 종료 실패는 치명적이지 않으므로 계속 진행
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    if (processZipalign != null)
+                    {
+                        try
+                        {
+                            if (!processZipalign.HasExited)
+                            {
+                                processZipalign.Kill();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"[Zipalign] Error disposing process: {ex.Message}");
+                        }
+                        finally
+                        {
+                            processZipalign.Dispose();
+                            processZipalign = null;
+                        }
+                    }
+                }
+                disposed = true;
+            }
+        }
+
+        ~Zipalign()
+        {
+            Dispose(false);
         }
 
         public int Align(string input, string output)
@@ -102,11 +149,63 @@ namespace APKToolGUI
             processZipalign.BeginErrorReadLine();
             processZipalign.WaitForExit();
 
-            //if (!Settings.Default.Zipalign_CheckOnly && Settings.Default.Zipalign_OverwriteOutputFile)
-            //{
-            File.Delete(output);
-            File.Move(PathUtils.GetDirectoryNameWithoutExtension(output) + "_align_temp.apk", output);
-            //}
+            // Handle temp file (only when not in CheckOnly mode)
+            if (!Settings.Default.Zipalign_CheckOnly)
+            {
+                string tempFile = PathUtils.GetDirectoryNameWithoutExtension(output) + "_align_temp.apk";
+                
+                try
+                {
+                    // 1. Delete output file
+                    if (File.Exists(output))
+                    {
+                        File.Delete(output);
+                        Debug.WriteLine($"[Zipalign] Deleted existing output: {output}");
+                    }
+                    
+                    // 2. Check temp file existence and move
+                    if (File.Exists(tempFile))
+                    {
+                        File.Move(tempFile, output);
+                        Debug.WriteLine($"[Zipalign] Moved temp file to output: {tempFile} -> {output}");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"[Zipalign] Warning: Temp file not found: {tempFile}");
+                        return 1; // Return failure code
+                    }
+                }
+                catch (IOException ex)
+                {
+                    Debug.WriteLine($"[Zipalign] Failed to process output file: {ex.Message}");
+                    
+                    // Attempt to cleanup temp file
+                    try
+                    {
+                        if (File.Exists(tempFile))
+                        {
+                            File.Delete(tempFile);
+                            Debug.WriteLine($"[Zipalign] Cleaned up temp file: {tempFile}");
+                        }
+                    }
+                    catch (Exception cleanupEx)
+                    {
+                        Debug.WriteLine($"[Zipalign] Failed to cleanup temp file: {cleanupEx.Message}");
+                    }
+                    
+                    return 1;
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    Debug.WriteLine($"[Zipalign] Access denied: {ex.Message}");
+                    return 1;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Zipalign] Unexpected error processing output: {ex.Message}");
+                    return 1;
+                }
+            }
 
             return ExitCode;
         }

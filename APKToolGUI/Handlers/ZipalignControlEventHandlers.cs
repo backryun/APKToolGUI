@@ -21,10 +21,10 @@ namespace APKToolGUI.Handlers
         {
             main = Main;
             CheckAlignSwitch = !Settings.Default.Zipalign_CheckOnly;
-            main.checkBox_ZIPALIGN_CheckAlignment.Click += checkBox_ZIPALIGN_CheckAlignment_CheckedChanged;
-            main.button_ZIPALIGN_BrowseOutputFile.Click += button_ZIPALIGN_BrowseOutputFile_Click;
-            main.button_ZIPALIGN_BrowseInputFile.Click += button_ZIPALIGN_BrowseInputFile_Click;
-            main.button_ZIPALIGN_Align.Click += button_ZIPALIGN_Align_Click;
+            main.checkBox_ZIPALIGN_CheckAlignment.Click += CheckBox_ZIPALIGN_CheckAlignment_CheckedChanged;
+            main.button_ZIPALIGN_BrowseOutputFile.Click += Button_ZIPALIGN_BrowseOutputFile_Click;
+            main.button_ZIPALIGN_BrowseInputFile.Click += Button_ZIPALIGN_BrowseInputFile_Click;
+            main.button_ZIPALIGN_Align.Click += Button_ZIPALIGN_Align_Click;
         }
 
         internal bool CheckAlignSwitch
@@ -36,12 +36,12 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void checkBox_ZIPALIGN_CheckAlignment_CheckedChanged(object sender, EventArgs e)
+        internal void CheckBox_ZIPALIGN_CheckAlignment_CheckedChanged(object sender, EventArgs e)
         {
             CheckAlignSwitch = !main.checkBox_ZIPALIGN_CheckAlignment.Checked;
         }
 
-        internal void button_ZIPALIGN_BrowseOutputFile_Click(object sender, EventArgs e)
+        internal void Button_ZIPALIGN_BrowseOutputFile_Click(object sender, EventArgs e)
         {
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
             dlg.ShowNewFolderButton = true;
@@ -52,7 +52,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_ZIPALIGN_BrowseInputFile_Click(object sender, EventArgs e)
+        internal async void Button_ZIPALIGN_BrowseInputFile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -76,7 +76,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_ZIPALIGN_Align_Click(object sender, EventArgs e)
+        internal async void Button_ZIPALIGN_Align_Click(object sender, EventArgs e)
         {
             if (!File.Exists(main.textBox_ZIPALIGN_InputFile.Text))
             {

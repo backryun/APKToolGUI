@@ -22,20 +22,20 @@ namespace APKToolGUI.Handlers
         public SignControlEventHandlers(FormMain Main)
         {
             main = Main;
-            main.button_SIGN_BrowsePublicKey.Click += button_SIGN_BrowsePublicKey_Click;
-            main.button_SIGN_BrowsePrivateKey.Click += button_SIGN_BrowsePrivateKey_Click;
-            main.button_SIGN_BrowsePrivateKey.Click += button_SIGN_BrowsePrivateKey_Click;
-            main.button_SIGN_BrowseInputFile.Click += button_SIGN_BrowseInputFile_Click;
-            main.button_SIGN_BrowseOutputFile.Click += button_SIGN_BrowseOutputFile_Click;
-            main.schemev1ComboBox.SelectedIndexChanged += schemeComboBoxChanged;
-            main.schemev2ComboBox.SelectedIndexChanged += schemeComboBoxChanged;
-            main.schemev3ComboBox.SelectedIndexChanged += schemeComboBoxChanged;
-            main.schemev4ComboBox.SelectedIndexChanged += schemeComboBoxChanged;
-            main.button_SIGN_Sign.Click += button_SIGN_Sign_Click;
-            main.selectKeyStoreFileBtn.Click += selectKeyStoreFileBtn_Click;
+            main.button_SIGN_BrowsePublicKey.Click += Button_SIGN_BrowsePublicKey_Click;
+            main.button_SIGN_BrowsePrivateKey.Click += Button_SIGN_BrowsePrivateKey_Click;
+            main.button_SIGN_BrowsePrivateKey.Click += Button_SIGN_BrowsePrivateKey_Click;
+            main.button_SIGN_BrowseInputFile.Click += Button_SIGN_BrowseInputFile_Click;
+            main.button_SIGN_BrowseOutputFile.Click += Button_SIGN_BrowseOutputFile_Click;
+            main.schemev1ComboBox.SelectedIndexChanged += SchemeComboBox_SelectedIndexChanged;
+            main.schemev2ComboBox.SelectedIndexChanged += SchemeComboBox_SelectedIndexChanged;
+            main.schemev3ComboBox.SelectedIndexChanged += SchemeComboBox_SelectedIndexChanged;
+            main.schemev4ComboBox.SelectedIndexChanged += SchemeComboBox_SelectedIndexChanged;
+            main.button_SIGN_Sign.Click += Button_SIGN_Sign_Click;
+            main.selectKeyStoreFileBtn.Click += SelectKeyStoreFileBtn_Click;
         }
 
-        internal void button_SIGN_BrowsePublicKey_Click(object sender, EventArgs e)
+        internal void Button_SIGN_BrowsePublicKey_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -50,7 +50,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_SIGN_BrowsePrivateKey_Click(object sender, EventArgs e)
+        internal void Button_SIGN_BrowsePrivateKey_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -65,7 +65,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_SIGN_BrowseOutputFile_Click(object sender, EventArgs e)
+        internal void Button_SIGN_BrowseOutputFile_Click(object sender, EventArgs e)
         {
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
             dlg.ShowNewFolderButton = true;
@@ -76,7 +76,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_SIGN_BrowseInputFile_Click(object sender, EventArgs e)
+        internal async void Button_SIGN_BrowseInputFile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -96,7 +96,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_SIGN_Sign_Click(object sender, EventArgs e)
+        internal async void Button_SIGN_Sign_Click(object sender, EventArgs e)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void selectKeyStoreFileBtn_Click(object sender, EventArgs e)
+        internal void SelectKeyStoreFileBtn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -135,7 +135,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private void schemeComboBoxChanged(object sender, EventArgs e)
+        private void SchemeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.Sign_Schemev1 = main.schemev1ComboBox.SelectedIndex;
             Settings.Default.Sign_Schemev2 = main.schemev2ComboBox.SelectedIndex;

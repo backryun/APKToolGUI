@@ -40,6 +40,8 @@ namespace APKToolGUI
         private Stopwatch stopwatch = new Stopwatch();
         private string lastStartedDate;
 
+        private Image previousApkIcon;
+
         internal static FormMain Instance { get; private set; }
 
         public FormMain()
@@ -172,116 +174,156 @@ namespace APKToolGUI
         #region Get APK Info
         internal async Task GetApkInfo(string file)
         {
-            if (File.Exists(file))
+            if (!File.Exists(file))
+                return;
+
+            ToLog(ApktoolEventType.None, Language.ParsingApkInfo);
+            ToStatus(Language.ParsingApkInfo, Resources.waiting);
+
+            try
             {
-                ToLog(ApktoolEventType.None, Language.ParsingApkInfo);
-                ToStatus(Language.ParsingApkInfo, Resources.waiting);
+                string splitPath = Path.Combine(Program.TEMP_PATH, "SplitInfo");
+                
+                // Parse APK in background
+                var parseResult = await ParseApkInBackgroundAsync(file, splitPath);
 
-                try
+                if (parseResult.Success)
                 {
-                    string splitPath = Path.Combine(Program.TEMP_PATH, "SplitInfo");
-                    string arch = "";
-
-                    bool parsed = false;
-
-                    await Task.Factory.StartNew(() =>
-                    {
-                        DirectoryUtils.Delete(splitPath);
-                        if (file.ContainsAny(".xapk", ".zip", ".apks", ".apkm"))
-                        {
-                            Directory.CreateDirectory(splitPath);
-
-                            using (ZipFile zipDest = ZipFile.Read(file))
-                            {
-                                bool mainApkFound = false;
-
-                                foreach (ZipEntry entry in zipDest.Entries)
-                                {
-                                    if (!mainApkFound && !entry.FileName.Contains("config.") && entry.FileName.EndsWith(".apk"))
-                                    {
-                                        Debug.WriteLine("Found main APK: " + entry.FileName);
-                                        string extractPath = Path.Combine(splitPath, entry.FileName);
-                                        Directory.CreateDirectory(Path.GetDirectoryName(extractPath));
-                                        entry.Extract(splitPath, ExtractExistingFileAction.OverwriteSilently);
-                                        file = extractPath;
-                                        mainApkFound = true;
-                                    }
-
-                                    if (entry.FileName.Contains("lib/armeabi-v7a"))
-                                    {
-                                        arch += "armeabi-v7a, ";
-                                    }
-                                    if (entry.FileName.Contains("lib/arm64-v8a"))
-                                    {
-                                        arch += "arm64-v8a, ";
-                                    }
-                                    if (entry.FileName.Contains("lib/x86"))
-                                    {
-                                        arch += "x86, ";
-                                    }
-                                    if (entry.FileName.Contains("lib/x86_64"))
-                                    {
-                                        arch += "x86_64, ";
-                                    }
-                                }
-                            }
-                        }
-
-                        aapt = new AaptParser();
-                        parsed = aapt.Parse(file);
-                    });
-
-                    if (parsed)
-                    {
-                        if (apkIconPicBox.Image != null)
-                        {
-                            apkIconPicBox.Image.Dispose();
-                            apkIconPicBox.Image = null;
-                        }
-                        fileTxtBox.Text = aapt.ApkFile;
-                        appTxtBox.Text = aapt.AppName;
-                        packNameTxtBox.Text = aapt.PackageName;
-                        verTxtBox.Text = aapt.VersionName;
-                        buildTxtBox.Text = aapt.VersionCode;
-                        minSdkTxtBox.Text = aapt.MinSdkVersionDetailed;
-                        targetSdkTxtBox.Text = aapt.TargetSdkVersionDetailed;
-                        screenTxtBox.Text = aapt.Screens;
-                        densityTxtBox.Text = aapt.Densities;
-                        permTxtBox.Text = aapt.Permissions;
-                        localsTxtBox.Text = aapt.Locales;
-                        fullInfoTextBox.Text = aapt.FullInfo;
-                        if (!String.IsNullOrEmpty(aapt.NativeCode))
-                            archSdkTxtBox.Text = aapt.NativeCode;
-                        else
-                            archSdkTxtBox.Text = arch.RemoveLast(", ");
-                        launchActivityTxtBox.Text = aapt.LaunchableActivity;
-
-                        apkIconPicBox.Image = BitmapUtils.LoadBitmap(aapt.GetIcon(file));
-
-                        DirectoryUtils.Delete(splitPath);
-                    }
-
-                    string signature = null;
-                    sigTxtBox.Text = "Loading...";
-
-                    await Task.Factory.StartNew(() =>
-                    {
-                        signature = signapk.GetSignature(file);
-                    });
-
-                    sigTxtBox.Text = signature;
+                    // UI update is automatically executed on UI thread
+                    UpdateApkInfoUI(parseResult);
+                    
+                    // Get signature info in background
+                    var signature = await Task.Run(() => signapk.GetSignature(parseResult.ActualFilePath));
+                    
+                    // Update signature info UI
+                    InvokeOnUIThread(() => sigTxtBox.Text = signature);
                 }
-                catch (Exception ex)
-                {
-#if DEBUG
-                    ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo + "\n" + ex.ToString());
-#else
-                    ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo);
-#endif
-                }
+
                 ToLog(ApktoolEventType.Success, Language.Done);
                 ToStatus(Language.Done, Resources.done);
             }
+            catch (Exception ex)
+            {
+#if DEBUG
+                ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo + "\n" + ex.ToString());
+#else
+                ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo);
+#endif
+            }
+        }
+
+        private async Task<ApkParseResult> ParseApkInBackgroundAsync(string file, string splitPath)
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    DirectoryUtils.Delete(splitPath);
+                    string arch = "";
+                    string actualFile = file;
+
+                    if (file.ContainsAny(".xapk", ".zip", ".apks", ".apkm"))
+                    {
+                        Directory.CreateDirectory(splitPath);
+
+                        using (ZipFile zipDest = ZipFile.Read(file))
+                        {
+                            bool mainApkFound = false;
+
+                            foreach (ZipEntry entry in zipDest.Entries)
+                            {
+                                if (!mainApkFound && !entry.FileName.Contains("config.") && entry.FileName.EndsWith(".apk"))
+                                {
+                                    Debug.WriteLine("Found main APK: " + entry.FileName);
+                                    string extractPath = Path.Combine(splitPath, entry.FileName);
+                                    Directory.CreateDirectory(Path.GetDirectoryName(extractPath));
+                                    entry.Extract(splitPath, ExtractExistingFileAction.OverwriteSilently);
+                                    actualFile = extractPath;
+                                    mainApkFound = true;
+                                }
+
+                                if (entry.FileName.Contains("lib/armeabi-v7a"))
+                                    arch += "armeabi-v7a, ";
+                                if (entry.FileName.Contains("lib/arm64-v8a"))
+                                    arch += "arm64-v8a, ";
+                                if (entry.FileName.Contains("lib/x86"))
+                                    arch += "x86, ";
+                                if (entry.FileName.Contains("lib/x86_64"))
+                                    arch += "x86_64, ";
+                            }
+                        }
+                    }
+
+                    var aaptParser = new AaptParser();
+                    var parsed = aaptParser.Parse(actualFile);
+
+                    DirectoryUtils.Delete(splitPath);
+
+                    return new ApkParseResult
+                    {
+                        Success = parsed,
+                        Aapt = aaptParser,
+                        Architecture = arch.TrimEnd(',', ' '),
+                        ActualFilePath = actualFile
+                    };
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error parsing APK: {ex.Message}");
+                    DirectoryUtils.Delete(splitPath);
+                    return new ApkParseResult { Success = false };
+                }
+            });
+        }
+
+        private void UpdateApkInfoUI(ApkParseResult result)
+        {
+            // Explicitly dispose previous image
+            if (previousApkIcon != null)
+            {
+                previousApkIcon.Dispose();
+                previousApkIcon = null;
+                Debug.WriteLine("[FormMain] Disposed previous APK icon");
+            }
+
+            // Remove PictureBox image reference
+            if (apkIconPicBox.Image != null)
+            {
+                apkIconPicBox.Image = null;
+            }
+
+            fileTxtBox.Text = result.Aapt.ApkFile;
+            appTxtBox.Text = result.Aapt.AppName;
+            packNameTxtBox.Text = result.Aapt.PackageName;
+            verTxtBox.Text = result.Aapt.VersionName;
+            buildTxtBox.Text = result.Aapt.VersionCode;
+            minSdkTxtBox.Text = result.Aapt.MinSdkVersionDetailed;
+            targetSdkTxtBox.Text = result.Aapt.TargetSdkVersionDetailed;
+            screenTxtBox.Text = result.Aapt.Screens;
+            densityTxtBox.Text = result.Aapt.Densities;
+            permTxtBox.Text = result.Aapt.Permissions;
+            localsTxtBox.Text = result.Aapt.Locales;
+            fullInfoTextBox.Text = result.Aapt.FullInfo;
+            launchActivityTxtBox.Text = result.Aapt.LaunchableActivity;
+
+            if (!String.IsNullOrEmpty(result.Aapt.NativeCode))
+                archSdkTxtBox.Text = result.Aapt.NativeCode;
+            else
+                archSdkTxtBox.Text = result.Architecture;
+
+            // Load new image and save reference
+            previousApkIcon = BitmapUtils.LoadBitmap(result.Aapt.GetIcon(result.ActualFilePath));
+            apkIconPicBox.Image = previousApkIcon;
+            
+            sigTxtBox.Text = "Loading...";
+        }
+
+        private class ApkParseResult
+        {
+            public bool Success { get; set; }
+            public AaptParser Aapt { get; set; }
+            public string Architecture { get; set; }
+            public string ActualFilePath { get; set; }
         }
         #endregion
 
@@ -322,29 +364,22 @@ namespace APKToolGUI
         #region Log & Status
         internal void ToStatus(string message, Image statusImage)
         {
-            BeginInvoke(new MethodInvoker(delegate
+            BeginInvokeOnUIThread(() =>
             {
                 toolStripStatusLabelStateText.Text = message.Replace("\n", "").Replace("\r", "");
                 toolStripStatusLabelStateImage.Image = statusImage;
-            }));
+            });
         }
 
         internal void ToLog(string time, string message, Color backColor)
         {
             Debug.WriteLine(time + " " + message);
 
-            if (logTxtBox.InvokeRequired)
-                Invoke(new Action(delegate ()
-                {
-                    //richTextBox1.SelectionColor = color ?? Color.Black;
-                    logTxtBox.SelectionColor = backColor;
-                    logTxtBox.AppendText(time + " " + message + Environment.NewLine);
-                }));
-            else
+            InvokeOnUIThread(() =>
             {
                 logTxtBox.SelectionColor = backColor;
                 logTxtBox.AppendText(time + " " + message + Environment.NewLine);
-            }
+            });
         }
 
         internal void ToLog(ApktoolEventType eventType, string message)
@@ -537,7 +572,7 @@ namespace APKToolGUI
                 DirectoryUtils.Delete(splitDir);
                 Directory.CreateDirectory(splitDir);
 
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     if (Settings.Default.Framework_ClearBeforeDecode)
                     {
@@ -574,10 +609,10 @@ namespace APKToolGUI
                             DirectoryUtils.Delete(outputDir);
                             DirectoryUtils.Copy(tempDecApk, outputDir);
 
-                            textBox_BUILD_InputProjectDir.BeginInvoke(new Action(delegate
+                            BeginInvokeOnUIThread(() =>
                             {
                                 textBox_BUILD_InputProjectDir.Text = outputDir;
-                            }));
+                            });
 
                             ToLog(ApktoolEventType.None, String.Format(Language.DecompilingSuccessfullyCompleted, outputDir));
                             if (Settings.Default.Decode_FixError)
@@ -627,7 +662,7 @@ namespace APKToolGUI
 
             try
             {
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     ToLog(ApktoolEventType.None, String.Format(Language.InputFile, inputSplitApk));
 
@@ -717,7 +752,7 @@ namespace APKToolGUI
 
             try
             {
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     if (apktool.ClearFramework() == 0)
                     {
@@ -762,7 +797,7 @@ namespace APKToolGUI
                     ToLog(ApktoolEventType.Error, String.Format(Language.DecodeDesDirExists, outputDir));
                     return 1;
                 }
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     if (Settings.Default.Framework_ClearBeforeDecode && !Settings.Default.UseApkeditor)
                     {
@@ -801,10 +836,10 @@ namespace APKToolGUI
                             DirectoryUtils.Copy(outputTempDir, outputDir);
                         }
 
-                        textBox_BUILD_InputProjectDir.BeginInvoke(new Action(delegate
+                        BeginInvokeOnUIThread(() =>
                         {
                             textBox_BUILD_InputProjectDir.Text = outputDir;
-                        }));
+                        });
 
                         ToLog(ApktoolEventType.None, String.Format(Language.DecompilingSuccessfullyCompleted, outputDir));
                         if (Settings.Default.Decode_FixError && !useAPKEditorForDecompilingItem.Checked)
@@ -1002,7 +1037,7 @@ namespace APKToolGUI
                 Running(Language.DecompilingDex);
                 ToLog(ApktoolEventType.None, String.Format(Language.InputFile, inputFile));
 
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     string outputDir = String.Format("{0}", Path.Combine(Path.GetDirectoryName(inputFile), "dexout", Path.GetFileNameWithoutExtension(inputFile)));
                     if (Settings.Default.Baksmali_UseOutputDir && !IgnoreOutputDirContextMenu)
@@ -1011,10 +1046,10 @@ namespace APKToolGUI
                     code = baksmali.Disassemble(inputFile, outputDir);
                     if (code == 0)
                     {
-                        textBox_BUILD_InputProjectDir.BeginInvoke(new Action(delegate
+                        BeginInvokeOnUIThread(() =>
                         {
                             smaliBrowseInputDirTxtBox.Text = outputDir;
-                        }));
+                        });
                         Done(String.Format(Language.DecompilingSuccessfullyCompleted, outputDir));
                     }
                     else
@@ -1058,7 +1093,7 @@ namespace APKToolGUI
 
                 ToLog(ApktoolEventType.None, String.Format(Language.InputDirectory, inputDir));
 
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     string outputDir = String.Format("{0}.dex", inputDir);
                     if (Settings.Default.Smali_UseOutputDir && !IgnoreOutputDirContextMenu)
@@ -1115,7 +1150,7 @@ namespace APKToolGUI
 
             try
             {
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     string tempApk = Path.Combine(Program.TEMP_PATH, "tempapk.apk");
                     string outputApkFile = outputDir;
@@ -1208,7 +1243,7 @@ namespace APKToolGUI
 
             try
             {
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     if (Settings.Default.Utf8FilenameSupport)
                     {
@@ -1302,7 +1337,7 @@ namespace APKToolGUI
             {
                 devicesListBox.Items.Clear();
 
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     devices = adb.GetDevices();
                 });
@@ -1352,7 +1387,7 @@ namespace APKToolGUI
 
             try
             {
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     code = adb.Install(device, inputApk);
                     if (code == 0)
@@ -1378,7 +1413,7 @@ namespace APKToolGUI
         #region Form handlers
         private async void FormMain_Shown(object sender, EventArgs e)
         {
-            await Task.Factory.StartNew(() =>
+            await Task.Run(() =>
             {
                 InitializeUpdateChecker();
                 InitializeZipalign();
@@ -1451,7 +1486,7 @@ namespace APKToolGUI
             Running(Language.ClearTempFolder);
             try
             {
-                await Task.Factory.StartNew(() =>
+                await Task.Run(() =>
                 {
                     foreach (var subDir in new DirectoryInfo(Program.TEMP_MAIN).EnumerateDirectories())
                     {
@@ -1486,6 +1521,39 @@ namespace APKToolGUI
         {
             Save();
 
+            // Dispose APK icon image
+            try
+            {
+                if (previousApkIcon != null)
+                {
+                    previousApkIcon.Dispose();
+                    previousApkIcon = null;
+                    Debug.WriteLine("[FormMain] Cleaned up APK icon on exit");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[FormMain] Error disposing APK icon: {ex.Message}");
+            }
+
+            // Dispose all tool instances
+            try
+            {
+                adb?.Dispose();
+                zipalign?.Dispose();
+                apktool?.Dispose();
+                signapk?.Dispose();
+                baksmali?.Dispose();
+                smali?.Dispose();
+                apkeditor?.Dispose();
+                
+                Debug.WriteLine("[FormMain] All tool instances disposed successfully");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[FormMain] Error disposing resources: {ex.Message}");
+            }
+
             DirectoryUtils.Delete(Program.TEMP_PATH);
         }
 
@@ -1493,69 +1561,17 @@ namespace APKToolGUI
         {
             set
             {
-                if (button_BUILD_Build.InvokeRequired)
-                    button_BUILD_Build.BeginInvoke(new Action(delegate
-                    {
-                        button_BUILD_Build.Enabled = value;
-                    }));
-                else
+                BeginInvokeOnUIThread(() =>
+                {
                     button_BUILD_Build.Enabled = value;
-
-                if (button_DECODE_Decode.InvokeRequired)
-                    button_DECODE_Decode.BeginInvoke(new Action(delegate
-                    {
-                        button_DECODE_Decode.Enabled = value;
-                    }));
-                else
                     button_DECODE_Decode.Enabled = value;
-
-                if (button_IF_InstallFramework.InvokeRequired)
-                    button_IF_InstallFramework.BeginInvoke(new Action(delegate
-                    {
-                        button_IF_InstallFramework.Enabled = value;
-                    }));
-                else
                     button_IF_InstallFramework.Enabled = value;
-
-                if (button_ZIPALIGN_Align.InvokeRequired)
-                    button_ZIPALIGN_Align.BeginInvoke(new Action(delegate
-                    {
-                        button_ZIPALIGN_Align.Enabled = value;
-                    }));
-                else
                     button_ZIPALIGN_Align.Enabled = value;
-
-                if (button_SIGN_Sign.InvokeRequired)
-                    button_SIGN_Sign.BeginInvoke(new Action(delegate
-                    {
-                        button_SIGN_Sign.Enabled = value;
-                    }));
-                else
                     button_SIGN_Sign.Enabled = value;
-
-                if (decSmaliBtn.InvokeRequired)
-                    decSmaliBtn.BeginInvoke(new Action(delegate
-                    {
-                        decSmaliBtn.Enabled = value;
-                    }));
-                else
                     decSmaliBtn.Enabled = value;
-
-                if (comSmaliBtn.InvokeRequired)
-                    comSmaliBtn.BeginInvoke(new Action(delegate
-                    {
-                        comSmaliBtn.Enabled = value;
-                    }));
-                else
                     comSmaliBtn.Enabled = value;
-
-                if (mergeApkBtn.InvokeRequired)
-                    mergeApkBtn.BeginInvoke(new Action(delegate
-                    {
-                        mergeApkBtn.Enabled = value;
-                    }));
-                else
                     mergeApkBtn.Enabled = value;
+                });
             }
         }
 
@@ -1563,15 +1579,18 @@ namespace APKToolGUI
         {
             set
             {
-                killAdbBtn.Enabled = value;
-                refreshDevicesBtn.Enabled = value;
-                installApkBtn.Enabled = value;
-                devicesListBox.Enabled = value;
-                apkPathAdbTxtBox.Enabled = value;
-                selApkAdbBtn.Enabled = value;
-                setVendorChkBox.Enabled = value;
-                overrideAbiCheckBox.Enabled = value;
-                overrideAbiComboBox.Enabled = value;
+                InvokeOnUIThread(() =>
+                {
+                    killAdbBtn.Enabled = value;
+                    refreshDevicesBtn.Enabled = value;
+                    installApkBtn.Enabled = value;
+                    devicesListBox.Enabled = value;
+                    apkPathAdbTxtBox.Enabled = value;
+                    selApkAdbBtn.Enabled = value;
+                    setVendorChkBox.Enabled = value;
+                    overrideAbiCheckBox.Enabled = value;
+                    overrideAbiComboBox.Enabled = value;
+                });
             }
         }
 
@@ -1579,6 +1598,53 @@ namespace APKToolGUI
         {
             MessageBox.Show(message, Application.ProductName, MessageBoxButtons.OK, status);
         }
+
+        #region UI Thread Helpers
+        /// <summary>
+        /// Execute action synchronously on UI thread
+        /// </summary>
+        private void InvokeOnUIThread(Action action)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(action);
+            }
+            else
+            {
+                action();
+            }
+        }
+
+        /// <summary>
+        /// Execute action asynchronously on UI thread (Fire and forget)
+        /// </summary>
+        private void BeginInvokeOnUIThread(Action action)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(action);
+            }
+            else
+            {
+                action();
+            }
+        }
+
+        /// <summary>
+        /// Execute function on UI thread and return result
+        /// </summary>
+        private T InvokeOnUIThread<T>(Func<T> func)
+        {
+            if (InvokeRequired)
+            {
+                return (T)Invoke(func);
+            }
+            else
+            {
+                return func();
+            }
+        }
+        #endregion
         #endregion
 
         #region Config

@@ -19,13 +19,13 @@ namespace APKToolGUI.Handlers
         public DecodeControlEventHandlers(FormMain Main)
         {
             main = Main;
-            main.button_DECODE_BrowseFrameDir.Click += button_DECODE_BrowseFrameDir_Click;
-            main.button_DECODE_BrowseOutputDirectory.Click += button_DECODE_BrowseOutputDirectory_Click;
-            main.button_DECODE_BrowseInputAppPath.Click += button_DECODE_BrowseInputAppPath_Click;
-            main.button_DECODE_Decode.Click += button_DECODE_Decode_Click;
+            main.button_DECODE_BrowseFrameDir.Click += Button_DECODE_BrowseFrameDir_Click;
+            main.button_DECODE_BrowseOutputDirectory.Click += Button_DECODE_BrowseOutputDirectory_Click;
+            main.button_DECODE_BrowseInputAppPath.Click += Button_DECODE_BrowseInputAppPath_Click;
+            main.button_DECODE_Decode.Click += Button_DECODE_Decode_Click;
         }
 
-        internal void button_DECODE_BrowseFrameDir_Click(object sender, EventArgs e)
+        internal void Button_DECODE_BrowseFrameDir_Click(object sender, EventArgs e)
         {
             using (VistaFolderBrowserDialog fbd = new VistaFolderBrowserDialog())
             {
@@ -36,7 +36,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_DECODE_BrowseOutputDirectory_Click(object sender, EventArgs e)
+        internal void Button_DECODE_BrowseOutputDirectory_Click(object sender, EventArgs e)
         {
             using (VistaFolderBrowserDialog fbd = new VistaFolderBrowserDialog())
             {
@@ -50,7 +50,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_DECODE_BrowseInputAppPath_Click(object sender, EventArgs e)
+        internal async void Button_DECODE_BrowseInputAppPath_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -71,7 +71,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void button_DECODE_Decode_Click(object sender, EventArgs e)
+        internal async void Button_DECODE_Decode_Click(object sender, EventArgs e)
         {
             string inputFile = main.textBox_DECODE_InputAppPath.Text;
             if (File.Exists(inputFile))

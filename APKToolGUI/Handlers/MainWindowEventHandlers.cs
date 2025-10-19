@@ -15,22 +15,22 @@ namespace APKToolGUI.Handlers
         public MainWindowEventHandlers(FormMain Main)
         {
             main = Main;
-            main.clearLogToolStripMenuItem.Click += clearLogToolStripMenuItem_Click;
-            main.copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
-            main.openAndroidMainfestBtn.Click += openAndroidMainfestBtn_Click;
-            main.openApktoolYmlBtn.Click += openApktoolYmlBtn_Click;
-            main.compileOutputOpenDirBtn.Click += compiledApkOpenDirBtn_Click;
-            main.button_OpenMainActivity.Click += button_OpenMainActivity_Click;
-            main.decApkOpenDirBtn.Click += decApkOpenDirBtn_Click;
-            main.decOutOpenDirBtn.Click += decOutOpenDirBtn_Click;
-            main.comApkOpenDir.Click += comApkOpenDir_Click;
-            main.signApkOpenDirBtn.Click += signApkOpenDirBtn_Click;
-            main.alignApkOpenDirBtn.Click += alignApkOpenDirBtn_Click;
-            main.mergeApkBtn.Click += mergeApkBtn_Click;
-            main.selSplitApkBtn.Click += selSplitApkBtn_Click;
+            main.clearLogToolStripMenuItem.Click += ClearLogToolStripMenuItem_Click;
+            main.copyToolStripMenuItem.Click += CopyToolStripMenuItem_Click;
+            main.openAndroidMainfestBtn.Click += OpenAndroidMainfestBtn_Click;
+            main.openApktoolYmlBtn.Click += OpenApktoolYmlBtn_Click;
+            main.compileOutputOpenDirBtn.Click += CompiledApkOpenDirBtn_Click;
+            main.button_OpenMainActivity.Click += Button_OpenMainActivity_Click;
+            main.decApkOpenDirBtn.Click += DecApkOpenDirBtn_Click;
+            main.decOutOpenDirBtn.Click += DecOutOpenDirBtn_Click;
+            main.comApkOpenDir.Click += ComApkOpenDir_Click;
+            main.signApkOpenDirBtn.Click += SignApkOpenDirBtn_Click;
+            main.alignApkOpenDirBtn.Click += AlignApkOpenDirBtn_Click;
+            main.mergeApkBtn.Click += MergeApkBtn_Click;
+            main.selSplitApkBtn.Click += SelSplitApkBtn_Click;
         }
 
-        internal void selSplitApkBtn_Click(object sender, EventArgs e)
+        internal void SelSplitApkBtn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -43,7 +43,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void mergeApkBtn_Click(object sender, EventArgs e)
+        internal async void MergeApkBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -62,12 +62,12 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private void clearLogToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClearLogToolStripMenuItem_Click(object sender, EventArgs e)
         {
             main.logTxtBox.Text = "";
         }
 
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void decApkOpenDirBtn_Click(object sender, EventArgs e)
+        internal void DecApkOpenDirBtn_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(main.textBox_BUILD_InputProjectDir.Text))
                 Process.Start("explorer.exe", main.textBox_BUILD_InputProjectDir.Text);
@@ -89,7 +89,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void decOutOpenDirBtn_Click(object sender, EventArgs e)
+        internal void DecOutOpenDirBtn_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(Settings.Default.Decode_OutputDir))
                 Process.Start("explorer.exe", Settings.Default.Decode_OutputDir);
@@ -99,7 +99,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private void openAndroidMainfestBtn_Click(object sender, EventArgs e)
+        private void OpenAndroidMainfestBtn_Click(object sender, EventArgs e)
         {
             if (File.Exists(Path.Combine(main.textBox_BUILD_InputProjectDir.Text, "AndroidManifest.xml")))
                 Process.Start("explorer.exe", Path.Combine(main.textBox_BUILD_InputProjectDir.Text, "AndroidManifest.xml"));
@@ -107,7 +107,7 @@ namespace APKToolGUI.Handlers
                 main.ToLog(ApktoolEventType.Error, Language.AndroidManifestNotExist);
         }
 
-        private void openApktoolYmlBtn_Click(object sender, EventArgs e)
+        private void OpenApktoolYmlBtn_Click(object sender, EventArgs e)
         {
             if (File.Exists(Path.Combine(main.textBox_BUILD_InputProjectDir.Text, "apktool.yml")))
                 Process.Start("explorer.exe", Path.Combine(main.textBox_BUILD_InputProjectDir.Text, "apktool.yml"));
@@ -115,7 +115,7 @@ namespace APKToolGUI.Handlers
                 main.ToLog(ApktoolEventType.Error, Language.AndroidManifestNotExist);
         }
 
-        private void compiledApkOpenDirBtn_Click(object sender, EventArgs e)
+        private void CompiledApkOpenDirBtn_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(Settings.Default.Build_OutputAppPath))
             {
@@ -125,7 +125,7 @@ namespace APKToolGUI.Handlers
                 main.ToLog(ApktoolEventType.Error, Language.ErrorSelectedFileNotExist);
         }
 
-        private void button_OpenMainActivity_Click(object sender, EventArgs e)
+        private void Button_OpenMainActivity_Click(object sender, EventArgs e)
         {
             string decPath = main.textBox_BUILD_InputProjectDir.Text;
             if (Directory.Exists(decPath))
@@ -177,7 +177,7 @@ namespace APKToolGUI.Handlers
                 main.ToLog(ApktoolEventType.Error, Language.DecompiledAPKNotExist);
         }
 
-        internal void comApkOpenDir_Click(object sender, EventArgs e)
+        internal void ComApkOpenDir_Click(object sender, EventArgs e)
         {
             string decApkDir = main.textBox_BUILD_InputProjectDir.Text;
 
@@ -199,7 +199,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void signApkOpenDirBtn_Click(object sender, EventArgs e)
+        internal void SignApkOpenDirBtn_Click(object sender, EventArgs e)
         {
             string inputFile = Settings.Default.Sign_InputFile;
             string outputFile = inputFile;
@@ -214,7 +214,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void alignApkOpenDirBtn_Click(object sender, EventArgs e)
+        internal void AlignApkOpenDirBtn_Click(object sender, EventArgs e)
         {
             string inputFile = Settings.Default.Zipalign_InputFile;
 

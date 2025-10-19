@@ -19,12 +19,12 @@ namespace APKToolGUI.Handlers
         public BaksmaliControlEventHandlers(FormMain Main)
         {
             main = Main;
-            main.baksmaliBrowseOutputBtn.Click += baksmaliBrowseOutputBtn_Click;
-            main.baksmaliBrowseInputDexBtn.Click += baksmaliBrowseInputDexBtn_Click;
-            main.decSmaliBtn.Click += decSmaliBtn_Click;
+            main.baksmaliBrowseOutputBtn.Click += BaksmaliBrowseOutputBtn_Click;
+            main.baksmaliBrowseInputDexBtn.Click += BaksmaliBrowseInputDexBtn_Click;
+            main.decSmaliBtn.Click += DecSmaliBtn_Click;
         }
 
-        internal void baksmaliBrowseOutputBtn_Click(object sender, EventArgs e)
+        internal void BaksmaliBrowseOutputBtn_Click(object sender, EventArgs e)
         {
             VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
             dlg.ShowNewFolderButton = true;
@@ -35,7 +35,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void baksmaliBrowseInputDexBtn_Click(object sender, EventArgs e)
+        internal void BaksmaliBrowseInputDexBtn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -46,7 +46,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal async void decSmaliBtn_Click(object sender, EventArgs e)
+        internal async void DecSmaliBtn_Click(object sender, EventArgs e)
         {
             if (main.baksmaliUseOutputChkBox.Checked)
             {

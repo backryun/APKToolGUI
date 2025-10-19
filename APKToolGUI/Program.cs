@@ -17,7 +17,7 @@ namespace APKToolGUI
     static class Program
     {
         /// <summary>
-        /// Главная точка входа для приложения.
+        /// Main entry point for the application.
         /// </summary>
         [DllImport("Shcore.dll")]
         static extern int SetProcessDpiAwareness(int PROCESS_DPI_AWARENESS);
@@ -155,15 +155,20 @@ namespace APKToolGUI
                     System.Threading.Thread.CurrentThread.CurrentCulture = _settingsCulture;
                 }
             }
-            catch
+            catch (System.Globalization.CultureNotFoundException ex)
             {
-
+                Debug.WriteLine($"[Program] Invalid culture '{settingsCulture}': {ex.Message}");
+                // Fall back to system default culture
+            }
+            catch (ArgumentException ex)
+            {
+                Debug.WriteLine($"[Program] Failed to set culture: {ex.Message}");
             }
         }
 
         private static bool FilesCheck()
         {
-            // проверка файлов
+            // File verification
             List<String> missigFiles = MissingFilesCheck();
             if (missigFiles.Count > 0)
             {

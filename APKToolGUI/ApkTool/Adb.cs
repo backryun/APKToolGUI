@@ -10,9 +10,11 @@ using System.Windows.Shapes;
 
 namespace APKToolGUI
 {
-    public class Adb
+    public class Adb : IDisposable
     {
         Process processAdb;
+        private bool disposed = false;
+
         static class Keys
         {
             public const string Devices = " devices -l"; //list connected devices (-l for long output)
@@ -43,10 +45,10 @@ namespace APKToolGUI
             processAdb = new Process();
             processAdb.EnableRaisingEvents = true;
             processAdb.StartInfo.FileName = AdbFileName;
-            processAdb.StartInfo.UseShellExecute = false; //отключаем использование оболочки, чтобы можно было читать данные вывода
-            processAdb.StartInfo.RedirectStandardOutput = true; // разрешаем перенаправление данных вывода
-            processAdb.StartInfo.RedirectStandardError = true; // разрешаем перенаправление данных вывода
-            processAdb.StartInfo.CreateNoWindow = true; //запрещаем создавать окно для запускаемой программы
+            processAdb.StartInfo.UseShellExecute = false; // Disable shell execution to read output data
+            processAdb.StartInfo.RedirectStandardOutput = true; // Allow output redirection
+            processAdb.StartInfo.RedirectStandardError = true; // Allow error redirection
+            processAdb.StartInfo.CreateNoWindow = true; // Do not create window for the launched program
             processAdb.Exited += processAdb_Exited;
         }
 
@@ -71,7 +73,52 @@ namespace APKToolGUI
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[Adb] Cancel failed: {ex.Message}");
+                // Process termination failure is not critical, so continue
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    if (processAdb != null)
+                    {
+                        try
+                        {
+                            if (!processAdb.HasExited)
+                            {
+                                processAdb.Kill();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"[Adb] Error disposing process: {ex.Message}");
+                        }
+                        finally
+                        {
+                            processAdb.Dispose();
+                            processAdb = null;
+                        }
+                    }
+                }
+                disposed = true;
+            }
+        }
+
+        ~Adb()
+        {
+            Dispose(false);
         }
 
         public int Install(string device, string inputApk)
@@ -120,19 +167,21 @@ namespace APKToolGUI
         {
             Log.d("ADB: " + adbFileName + " " + Keys.Devices);
 
-            Process process = new Process();
-            process.EnableRaisingEvents = true;
-            process.StartInfo.FileName = adbFileName;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.CreateNoWindow = true;
-            process.EnableRaisingEvents = false;
-            process.StartInfo.Arguments = Keys.Devices;
-            process.Start();
-            string devices = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-            return devices;
+            using (Process process = new Process())
+            {
+                process.EnableRaisingEvents = true;
+                process.StartInfo.FileName = adbFileName;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                process.StartInfo.CreateNoWindow = true;
+                process.EnableRaisingEvents = false;
+                process.StartInfo.Arguments = Keys.Devices;
+                process.Start();
+                string devices = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+                return devices;
+            }
         }
 
         public void KillProcess()

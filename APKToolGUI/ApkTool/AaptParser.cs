@@ -255,9 +255,18 @@ namespace APKToolGUI.Utils
                     w.DownloadFile(StringExt.Regex(@"(?<=\""image\"":\"")(.*?)(?=\"",\"")", ps), icondl);
                     iconLocation = icondl;
                 }
-                catch
+                catch (System.Net.WebException ex)
                 {
-                    
+                    Debug.WriteLine($"[AaptParser] Failed to download icon from web: {ex.Message}");
+                    // Icon download failure is not critical, use default value
+                }
+                catch (IOException ex)
+                {
+                    Debug.WriteLine($"[AaptParser] Failed to save icon file: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[AaptParser] Unexpected error getting icon: {ex.Message}");
                 }
             }
 
