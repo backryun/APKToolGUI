@@ -269,6 +269,8 @@ namespace APKToolGUI.Utils
         {
             switch (sdk)
             {
+                case "36":
+                    return sdk + ": Android 16";
                 case "35":
                     return sdk + ": Android 15";
                 case "34":
