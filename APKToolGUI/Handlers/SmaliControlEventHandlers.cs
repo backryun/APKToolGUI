@@ -46,7 +46,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void comSmaliBtn_Click(object sender, EventArgs e)
+        internal async void comSmaliBtn_Click(object sender, EventArgs e)
         {
             if (main.smaliUseOutputChkBox.Checked)
             {
@@ -63,7 +63,7 @@ namespace APKToolGUI.Handlers
                 return;
             }
 
-            main.Smali(Settings.Default.Smali_InputDir);
+            await main.Smali(Settings.Default.Smali_InputDir);
         }
     }
 }

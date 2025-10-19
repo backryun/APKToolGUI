@@ -76,7 +76,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_SIGN_BrowseInputFile_Click(object sender, EventArgs e)
+        internal async void button_SIGN_BrowseInputFile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -85,7 +85,7 @@ namespace APKToolGUI.Handlers
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     main.textBox_SIGN_InputFile.Text = ofd.FileName;
-                    main.GetApkInfo(ofd.FileName);
+                    await main.GetApkInfo(ofd.FileName);
                     main.textBox_SIGN_OutputFile.Text =
                         String.Format("{0}{1}{2}_signed{3}",
                         Path.GetDirectoryName(main.textBox_SIGN_InputFile.Text),

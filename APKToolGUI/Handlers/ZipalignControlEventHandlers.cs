@@ -52,7 +52,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_ZIPALIGN_BrowseInputFile_Click(object sender, EventArgs e)
+        internal async void button_ZIPALIGN_BrowseInputFile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -66,7 +66,7 @@ namespace APKToolGUI.Handlers
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     main.textBox_ZIPALIGN_InputFile.Text = ofd.FileName;
-                    main.GetApkInfo(ofd.FileName);
+                    await main.GetApkInfo(ofd.FileName);
                     if (!main.checkBox_ZIPALIGN_CheckAlignment.Checked)
                         main.textBox_ZIPALIGN_OutputFile.Text = String.Format("{0}\\{1}_zipaligned{2}",
                             Path.GetDirectoryName(ofd.FileName),

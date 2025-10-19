@@ -23,13 +23,13 @@ namespace APKToolGUI.Handlers
             main.apkMirrorLinkBtn.Click += apkMirrorLinkBtn_Click;
         }
 
-        private void selApkFileInfoBtn_Click(object sender, EventArgs e)
+        private async void selApkFileInfoBtn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    main.GetApkInfo(ofd.FileName);
+                    await main.GetApkInfo(ofd.FileName);
                 }
             }
         }

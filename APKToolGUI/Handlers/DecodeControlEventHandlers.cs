@@ -50,7 +50,7 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        internal void button_DECODE_BrowseInputAppPath_Click(object sender, EventArgs e)
+        internal async void button_DECODE_BrowseInputAppPath_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -61,7 +61,7 @@ namespace APKToolGUI.Handlers
                     main.textBox_DECODE_InputAppPath.Text = ofd.FileName;
 
                     if (!Settings.Default.Decode_DontParseApkInfo)
-                        main.GetApkInfo(ofd.FileName);
+                        await main.GetApkInfo(ofd.FileName);
 
                     if (main.checkBox_DECODE_OutputDirectory.Checked)
                     {

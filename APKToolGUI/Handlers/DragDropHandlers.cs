@@ -203,14 +203,14 @@ namespace APKToolGUI.Handlers
             }
         }
 
-        private void DropApkToGetInfo(DragEventArgs e)
+        private async void DropApkToGetInfo(DragEventArgs e)
         {
             string apkFile = null;
             if (e.DropOneByEnd(file => apkFile = file, apks))
             {
                 main.smaliBrowseInputDirTxtBox.Text = apkFile;
                 main.basicInfoTabPage.BackColor = PanelBackColor();
-                main.GetApkInfo(apkFile);
+                await main.GetApkInfo(apkFile);
             }
         }
 
