@@ -60,17 +60,20 @@ namespace APKToolGUI
             {
                 foreach (var process in Process.GetProcessesByName("zipalign"))
                 {
-                    if (process.Id == processZipalign.Id)
+                    using (process)
                     {
-                        ProcessUtils.KillAllProcessesSpawnedBy((uint)processZipalign.Id);
-                        process.Kill();
+                        if (process.Id == processZipalign.Id)
+                        {
+                            ProcessUtils.KillAllProcessesSpawnedBy((uint)processZipalign.Id);
+                            process.Kill();
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"[Zipalign] Cancel failed: {ex.Message}");
-                // 프로세스 종료 실패는 치명적이지 않으므로 계속 진행
+                // Process termination failure is not critical, so continue
             }
         }
 

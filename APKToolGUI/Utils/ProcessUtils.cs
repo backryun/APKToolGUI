@@ -14,23 +14,45 @@ namespace APKToolGUI.Utils
         public static void KillAllProcessesSpawnedBy(UInt32 parentProcessId)
         {
             // NOTE: Process Ids are reused!
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(
                 "SELECT * " +
                 "FROM Win32_Process " +
-                "WHERE ParentProcessId=" + parentProcessId);
-            ManagementObjectCollection collection = searcher.Get();
-            if (collection.Count > 0)
+                "WHERE ParentProcessId=" + parentProcessId))
             {
-                foreach (var item in collection)
+                using (ManagementObjectCollection collection = searcher.Get())
                 {
-                    UInt32 childProcessId = (UInt32)item["ProcessId"];
-                    if ((int)childProcessId != Process.GetCurrentProcess().Id)
+                    if (collection.Count > 0)
                     {
-                        Debug.WriteLine($"Kill child process {childProcessId}");
-                        KillAllProcessesSpawnedBy(childProcessId);
+                        foreach (var item in collection)
+                        {
+                            UInt32 childProcessId = (UInt32)item["ProcessId"];
+                            if ((int)childProcessId != Process.GetCurrentProcess().Id)
+                            {
+                                Debug.WriteLine($"Kill child process {childProcessId}");
 
-                        Process childProcess = Process.GetProcessById((int)childProcessId);
-                        childProcess.Kill();
+                                // Recursively kill child processes
+                                KillAllProcessesSpawnedBy(childProcessId);
+
+                                // Kill and dispose the child process
+                                try
+                                {
+                                    using (Process childProcess = Process.GetProcessById((int)childProcessId))
+                                    {
+                                        childProcess.Kill();
+                                    }
+                                }
+                                catch (ArgumentException)
+                                {
+                                    // Process already exited
+                                    Debug.WriteLine($"Process {childProcessId} already exited");
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    // Process is terminating or has exited
+                                    Debug.WriteLine($"Process {childProcessId} is terminating: {ex.Message}");
+                                }
+                            }
+                        }
                     }
                 }
             }

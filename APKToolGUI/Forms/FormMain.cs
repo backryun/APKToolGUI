@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -202,7 +203,7 @@ namespace APKToolGUI
                 ToLog(ApktoolEventType.Success, Language.Done);
                 ToStatus(Language.Done, Resources.done);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 #if DEBUG
                 ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo + "\n" + ex.ToString());
@@ -219,7 +220,7 @@ namespace APKToolGUI
                 try
                 {
                     DirectoryUtils.Delete(splitPath);
-                    string arch = "";
+                    List<string> archList = new List<string>();
                     string actualFile = file;
 
                     if (file.ContainsAny(".xapk", ".zip", ".apks", ".apkm"))
@@ -242,14 +243,14 @@ namespace APKToolGUI
                                     mainApkFound = true;
                                 }
 
-                                if (entry.FileName.Contains("lib/armeabi-v7a"))
-                                    arch += "armeabi-v7a, ";
-                                if (entry.FileName.Contains("lib/arm64-v8a"))
-                                    arch += "arm64-v8a, ";
-                                if (entry.FileName.Contains("lib/x86"))
-                                    arch += "x86, ";
-                                if (entry.FileName.Contains("lib/x86_64"))
-                                    arch += "x86_64, ";
+                                if (entry.FileName.Contains("lib/armeabi-v7a") && !archList.Contains("armeabi-v7a"))
+                                    archList.Add("armeabi-v7a");
+                                if (entry.FileName.Contains("lib/arm64-v8a") && !archList.Contains("arm64-v8a"))
+                                    archList.Add("arm64-v8a");
+                                if (entry.FileName.Contains("lib/x86") && !archList.Contains("x86"))
+                                    archList.Add("x86");
+                                if (entry.FileName.Contains("lib/x86_64") && !archList.Contains("x86_64"))
+                                    archList.Add("x86_64");
                             }
                         }
                     }
@@ -263,7 +264,7 @@ namespace APKToolGUI
                     {
                         Success = parsed,
                         Aapt = aaptParser,
-                        Architecture = arch.TrimEnd(',', ' '),
+                        Architecture = string.Join(", ", archList),
                         ActualFilePath = actualFile
                     };
                 }

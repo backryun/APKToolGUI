@@ -118,14 +118,7 @@ namespace APKToolGUI
         public static bool IsWin10OrAbove()
         {
             // Check if the operating system is Windows 10 or above
-            if (OSVersion.GetOSVersion().Version.Major >= 10 && OSVersion.GetOSVersion().Version.Minor >= 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return OSVersion.GetOSVersion().Version.Major >= 10;
         }
 
 

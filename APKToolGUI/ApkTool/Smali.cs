@@ -71,10 +71,13 @@ namespace APKToolGUI
             {
                 foreach (var process in Process.GetProcessesByName("java"))
                 {
-                    if (process.Id == Id)
+                    using (process)
                     {
-                        ProcessUtils.KillAllProcessesSpawnedBy((uint)Id);
-                        process.Kill();
+                        if (process.Id == Id)
+                        {
+                            ProcessUtils.KillAllProcessesSpawnedBy((uint)Id);
+                            process.Kill();
+                        }
                     }
                 }
             }
@@ -116,7 +119,7 @@ namespace APKToolGUI
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose(bool disposing)
+        protected new virtual void Dispose(bool disposing)
         {
             if (!disposed)
             {

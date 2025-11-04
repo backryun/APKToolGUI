@@ -66,10 +66,13 @@ namespace APKToolGUI
             {
                 foreach (var process in Process.GetProcessesByName("adb"))
                 {
-                    if (process.Id == processAdb.Id)
+                    using (process)
                     {
-                        ProcessUtils.KillAllProcessesSpawnedBy((uint)processAdb.Id);
-                        process.Kill();
+                        if (process.Id == processAdb.Id)
+                        {
+                            ProcessUtils.KillAllProcessesSpawnedBy((uint)processAdb.Id);
+                            process.Kill();
+                        }
                     }
                 }
             }
@@ -188,7 +191,10 @@ namespace APKToolGUI
         {
             foreach (var process in Process.GetProcessesByName("adb"))
             {
-                process.Kill();
+                using (process)
+                {
+                    process.Kill();
+                }
             }
         }
     }

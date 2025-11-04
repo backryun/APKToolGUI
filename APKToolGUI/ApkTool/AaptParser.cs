@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -101,6 +102,7 @@ namespace APKToolGUI.Utils
 
                 List<string> nativecode = new List<string> { };
                 List<string> nativecode2 = new List<string> { };
+                StringBuilder permissionsBuilder = new StringBuilder();
                 foreach (string line in lines)
                 {
                     switch (line.Split(':')[0])
@@ -111,7 +113,7 @@ namespace APKToolGUI.Utils
                             VersionCode = StringExt.Regex(@"(?<=versionCode=\')(.*?)(?=\')", line);
                             break;
                         case "uses-permission":
-                            Permissions += StringExt.Regex(@"(?<=name=\')(.*?)(?=\')", line) + "\n";
+                            permissionsBuilder.AppendLine(StringExt.Regex(@"(?<=name=\')(.*?)(?=\')", line));
                             break;
                         case "sdkVersion":
                             MinSdkVersionDetailed = SdkToAndroidVer(StringExt.Regex(@"(?<=sdkVersion:\')(.*?)(?=\')", line));
@@ -147,6 +149,8 @@ namespace APKToolGUI.Utils
                             break;
                     }
                 }
+
+                Permissions = permissionsBuilder.ToString();
                 List<string> combinedList = nativecode2.Concat(nativecode).ToList();
                 NativeCode += string.Join(", ", combinedList);
                 ApkFile = file;
