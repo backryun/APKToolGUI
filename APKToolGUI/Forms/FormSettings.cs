@@ -139,7 +139,7 @@ namespace APKToolGUI
                 if (Language.SystemLanguage.Equals(comboBox1.SelectedItem.ToString()))
                     Settings.Default.Culture = "Auto";
                 else
-                    Settings.Default.Culture = StringExt.Regex(@"(?<=\[)(.*?)(?=\])", comboBox1.SelectedItem.ToString());
+                    Settings.Default.Culture = StringExt.RegexExtract(@"(?<=\[)(.*?)(?=\])", comboBox1.SelectedItem.ToString());
 
                 Settings.Default.Theme = themeComboBox.SelectedIndex;
                 Settings.Default.Save();

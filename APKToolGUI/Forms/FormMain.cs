@@ -59,6 +59,8 @@ namespace APKToolGUI
             Text += " - v" + ProductVersion;
             Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
 
+            aapt = new AaptParser();
+
             if (!File.Exists(Settings.Default.Decode_InputAppPath))
                 Settings.Default.Decode_InputAppPath = "";
             if (!Directory.Exists(Settings.Default.Build_InputDir))
@@ -203,7 +205,7 @@ namespace APKToolGUI
                 ToLog(ApktoolEventType.Success, Language.Done);
                 ToStatus(Language.Done, Resources.done);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 #if DEBUG
                 ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo + "\n" + ex.ToString());
@@ -419,6 +421,7 @@ namespace APKToolGUI
                         color = Color.DarkOrange;
                     else
                         color = Color.Orange;
+                        color = Color.White;
                     break;
                 case ApktoolEventType.Unknown:
                     if (Program.IsDarkTheme())

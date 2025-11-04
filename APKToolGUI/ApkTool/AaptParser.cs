@@ -108,26 +108,26 @@ namespace APKToolGUI.Utils
                     switch (line.Split(':')[0])
                     {
                         case "package":
-                            PackageName = StringExt.Regex(@"(?<=package: name=\')(.*?)(?=\')", line);
-                            VersionName = StringExt.Regex(@"(?<=versionName=\')(.*?)(?=\')", line);
-                            VersionCode = StringExt.Regex(@"(?<=versionCode=\')(.*?)(?=\')", line);
+                            PackageName = StringExt.RegexExtract(@"(?<=package: name=\')(.*?)(?=\')", line);
+                            VersionName = StringExt.RegexExtract(@"(?<=versionName=\')(.*?)(?=\')", line);
+                            VersionCode = StringExt.RegexExtract(@"(?<=versionCode=\')(.*?)(?=\')", line);
                             break;
                         case "uses-permission":
-                            permissionsBuilder.AppendLine(StringExt.Regex(@"(?<=name=\')(.*?)(?=\')", line));
+                            permissionsBuilder.AppendLine(StringExt.RegexExtract(@"(?<=name=\')(.*?)(?=\')", line));
                             break;
                         case "sdkVersion":
-                            MinSdkVersionDetailed = SdkToAndroidVer(StringExt.Regex(@"(?<=sdkVersion:\')(.*?)(?=\')", line));
-                            MinSdkVersion = StringExt.Regex(@"(?<=sdkVersion:\')(.*?)(?=\')", line);
+                            MinSdkVersionDetailed = SdkToAndroidVer(StringExt.RegexExtract(@"(?<=sdkVersion:\')(.*?)(?=\')", line));
+                            MinSdkVersion = StringExt.RegexExtract(@"(?<=sdkVersion:\')(.*?)(?=\')", line);
                             break;
                         case "targetSdkVersion":
-                            TargetSdkVersionDetailed = SdkToAndroidVer(StringExt.Regex(@"(?<=targetSdkVersion:\')(.*?)(?=\')", line));
-                            TargetSdkVersion = StringExt.Regex(@"(?<=targetSdkVersion:\')(.*?)(?=\')", line);
+                            TargetSdkVersionDetailed = SdkToAndroidVer(StringExt.RegexExtract(@"(?<=targetSdkVersion:\')(.*?)(?=\')", line));
+                            TargetSdkVersion = StringExt.RegexExtract(@"(?<=targetSdkVersion:\')(.*?)(?=\')", line);
                             break;
                         case "application-label":
-                            AppName = StringExt.Regex(@"(?<=application-label:\')(.*?)(?=\')", line);
+                            AppName = StringExt.RegexExtract(@"(?<=application-label:\')(.*?)(?=\')", line);
                             break;
                         case "launchable-activity":
-                            LaunchableActivity = StringExt.Regex(@"(?<=name=\')(.*?)(?=\')", line);
+                            LaunchableActivity = StringExt.RegexExtract(@"(?<=name=\')(.*?)(?=\')", line);
                             break;
                         case "supports-screens":
                             var screens = Regex.Matches(line.Split(':')[1], @"(?<= \')(.*?)(?=\')").Cast<Match>().Select(m => m.Value).ToList();
@@ -161,13 +161,13 @@ namespace APKToolGUI.Utils
                 ApkMirrorLink = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=" + PackageName;
                 ApkGkLink = "https://apkgk.com/" + PackageName + "/download";
 
-                AppIcon120 = StringExt.Regex(@"(?<=application-icon-120:\')(.*?)(?=\')", FullInfo);
-                AppIcon160 = StringExt.Regex(@"(?<=application-icon-160:\')(.*?)(?=\')", FullInfo);
-                AppIcon240 = StringExt.Regex(@"(?<=application-icon-240:\')(.*?)(?=\')", FullInfo);
-                AppIcon320 = StringExt.Regex(@"(?<=application-icon-320:\')(.*?)(?=\')", FullInfo);
-                AppIcon480 = StringExt.Regex(@"(?<=application-icon-480:\')(.*?)(?=\')", FullInfo);
-                AppIcon640 = StringExt.Regex(@"(?<=application-icon-640:\')(.*?)(?=\')", FullInfo);
-                AppIcon65534 = StringExt.Regex(@"(?<=application-icon-65534:\')(.*?)(?=\')", FullInfo);
+                AppIcon120 = StringExt.RegexExtract(@"(?<=application-icon-120:\')(.*?)(?=\')", FullInfo);
+                AppIcon160 = StringExt.RegexExtract(@"(?<=application-icon-160:\')(.*?)(?=\')", FullInfo);
+                AppIcon240 = StringExt.RegexExtract(@"(?<=application-icon-240:\')(.*?)(?=\')", FullInfo);
+                AppIcon320 = StringExt.RegexExtract(@"(?<=application-icon-320:\')(.*?)(?=\')", FullInfo);
+                AppIcon480 = StringExt.RegexExtract(@"(?<=application-icon-480:\')(.*?)(?=\')", FullInfo);
+                AppIcon640 = StringExt.RegexExtract(@"(?<=application-icon-640:\')(.*?)(?=\')", FullInfo);
+                AppIcon65534 = StringExt.RegexExtract(@"(?<=application-icon-65534:\')(.*?)(?=\')", FullInfo);
 
                 result = true;
             }
@@ -256,7 +256,7 @@ namespace APKToolGUI.Utils
                     //File.WriteAllText("R:\\t.txt", ps);
                     string icondl = Path.Combine(cacheDir, "icon.png");
                     Directory.CreateDirectory(cacheDir);
-                    w.DownloadFile(StringExt.Regex(@"(?<=\""image\"":\"")(.*?)(?=\"",\"")", ps), icondl);
+                    w.DownloadFile(StringExt.RegexExtract(@"(?<=\""image\"":\"")(.*?)(?=\"",\"")", ps), icondl);
                     iconLocation = icondl;
                 }
                 catch (System.Net.WebException ex)

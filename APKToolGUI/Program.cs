@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 namespace APKToolGUI
@@ -165,12 +166,13 @@ namespace APKToolGUI
             List<String> missigFiles = MissingFilesCheck();
             if (missigFiles.Count > 0)
             {
-                String files = Environment.NewLine;
+                StringBuilder filesBuilder = new StringBuilder();
+                filesBuilder.AppendLine();
                 foreach (String file in missigFiles)
                 {
-                    files += file + Environment.NewLine;
+                    filesBuilder.AppendLine(file);
                 }
-                MessageBox.Show(Language.RequiredFilesMissing + files, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Language.RequiredFilesMissing + filesBuilder.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //Application.Exit();
                 return false;
             }

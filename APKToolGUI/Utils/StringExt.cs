@@ -5,18 +5,36 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace APKToolGUI.Utils
 {
     public static class StringExt
     {
-        static readonly Random random = new Random();
-
-        public static string Regex(string text, string match)
+        [ThreadStatic]
+        private static Random threadRandom;
+        
+        private static Random ThreadRandom
         {
-            Regex myRegex = new Regex(text);
-            Match matched = myRegex.Match(match);
+            get
+            {
+                if (threadRandom == null)
+                    threadRandom = new Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId));
+                return threadRandom;
+            }
+        }
+
+        /// <summary>
+        /// Extracts a string from the input using the provided regex pattern.
+        /// </summary>
+        /// <param name="pattern">The regex pattern to match.</param>
+        /// <param name="input">The input string to search.</param>
+        /// <returns>The matched string or empty string if no match found.</returns>
+        public static string RegexExtract(string pattern, string input)
+        {
+            Regex regex = new Regex(pattern);
+            Match matched = regex.Match(input);
             return matched.ToString();
         }
 
@@ -24,14 +42,14 @@ namespace APKToolGUI.Utils
         {
             const string chars = "abcdefghijklmnopqrstuvwxyz";
             return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
+              .Select(s => s[ThreadRandom.Next(s.Length)]).ToArray());
         }
 
         public static string RandStrWithCaps(int length)
         {
             const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
+              .Select(s => s[ThreadRandom.Next(s.Length)]).ToArray());
         }
 
         /// <summary>

@@ -17,7 +17,7 @@ namespace APKToolGUI.Utils
             {
                 if (mf.Contains("<application"))
                 {
-                    return StringExt.Regex(@"(?<=android:name=\"")(.*?)(?=\"")", mf);
+                    return StringExt.RegexExtract(@"(?<=android:name=\"")(.*?)(?=\"")", mf);
                 }
             }
             return "";
@@ -31,11 +31,11 @@ namespace APKToolGUI.Utils
             foreach (string mf in Manifest)
             {
                 if (String.IsNullOrEmpty(packageName))
-                    packageName = StringExt.Regex(@"(?<=package=\"")(.*?)(?=\"")", mf);
+                    packageName = StringExt.RegexExtract(@"(?<=package=\"")(.*?)(?=\"")", mf);
 
                 if (mf.Contains("<activity"))
                 {
-                    mainActivity = StringExt.Regex(@"(?<=android:name=\"")(.*?)(?=\"")", mf);
+                    mainActivity = StringExt.RegexExtract(@"(?<=android:name=\"")(.*?)(?=\"")", mf);
                 }
                 if (mf.Contains("android.intent.action.MAIN"))
                 {
