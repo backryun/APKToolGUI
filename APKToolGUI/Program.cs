@@ -26,19 +26,17 @@ namespace APKToolGUI
         [DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
 
+        private const int PROCESS_PER_MONITOR_DPI_AWARE = 2;
+
         [STAThread]
         static void Main(String[] arg)
         {
             try
             {
                 //Debug.WriteLine(Application.ProductName);
+                ConfigureDpiAwareness();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-
-                if (Environment.OSVersion.Version.Major == 6)
-                {
-                    SetProcessDPIAware();
-                }
 
                 PortableSettingsProvider.SettingsFileName = "config.xml";
                 PortableSettingsProvider.ApplyProvider(Settings.Default);
@@ -120,6 +118,50 @@ namespace APKToolGUI
         {
             // Check if the operating system is Windows 10 or above
             return OSVersion.GetOSVersion().Version.Major >= 10;
+        }
+
+        private static void ConfigureDpiAwareness()
+        {
+            if (IsWin10OrAbove())
+            {
+                try
+                {
+                    if (SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE) == 0)
+                        return;
+                }
+                catch (DllNotFoundException ex)
+                {
+                    Debug.WriteLine($"[Program] Shcore.dll not found: {ex.Message}");
+                }
+                catch (EntryPointNotFoundException ex)
+                {
+                    Debug.WriteLine($"[Program] SetProcessDpiAwareness unavailable: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Program] Failed to set per-monitor DPI awareness: {ex.Message}");
+                }
+            }
+
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                try
+                {
+                    SetProcessDPIAware();
+                }
+                catch (DllNotFoundException ex)
+                {
+                    Debug.WriteLine($"[Program] user32.dll not found: {ex.Message}");
+                }
+                catch (EntryPointNotFoundException ex)
+                {
+                    Debug.WriteLine($"[Program] SetProcessDPIAware unavailable: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Program] Failed to set system DPI awareness: {ex.Message}");
+                }
+            }
         }
 
 

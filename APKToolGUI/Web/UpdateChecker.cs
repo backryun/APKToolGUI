@@ -7,6 +7,18 @@ namespace APKToolGUI
 {
     class UpdateChecker
     {
+        static UpdateChecker()
+        {
+            try
+            {
+                ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+            }
+            catch (NotSupportedException)
+            {
+                // TLS 1.2 not available on this platform; fall back to defaults
+            }
+        }
+
         public UpdateChecker(string url, Version currentVersion)
         {
             currentVer = currentVersion;
