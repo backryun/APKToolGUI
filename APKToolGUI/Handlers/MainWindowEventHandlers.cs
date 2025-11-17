@@ -34,7 +34,7 @@ namespace APKToolGUI.Handlers
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "Split APK Package (*.xapk;*.zip*.apkm;*.apks)|*.xapk;*.zip*.apkm;*.apks";
+                ofd.Filter = "Split APK Package (*.xapk;*.zip;*.apkm;*.apks)|*.xapk;*.zip;*.apkm;*.apks";
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
