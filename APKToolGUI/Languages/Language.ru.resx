@@ -510,6 +510,36 @@
   <data name="ClearFrameworkPrompt" xml:space="preserve">
     <value>После изменения версии Apktool необходимо очистить кеш. Вы хотите очистить его сейчас?</value>
   </data>
+  <data name="RestartApplicationPrompt" xml:space="preserve">
+    <value>Для применения изменений требуется перезапуск. Перезапустить приложение сейчас?</value>
+  </data>
+  <data name="ClearTempFolder" xml:space="preserve">
+    <value>Очистка временной папки</value>
+  </data>
+  <data name="DeletingFolder" xml:space="preserve">
+    <value>Удаление папки: {0}</value>
+  </data>
+  <data name="DirectoryNotExist" xml:space="preserve">
+    <value>Директория "{0}" не существует</value>
+  </data>
+  <data name="OpenComFolder" xml:space="preserve">
+    <value>Открыть папку скомпилированных файлов</value>
+  </data>
+  <data name="OpenDecFolder" xml:space="preserve">
+    <value>Открыть папку декомпилированных файлов</value>
+  </data>
+  <data name="FixApktoolYml" xml:space="preserve">
+    <value>Исправлен apktool.yml</value>
+  </data>
+  <data name="CopyFileTo" xml:space="preserve">
+    <value>Копирование файла "{0}" в "{1}"</value>
+  </data>
+  <data name="SplitApkNotFound" xml:space="preserve">
+    <value>Split APK не выбран</value>
+  </data>
+  <data name="CantDetectApkeditorVersion" xml:space="preserve">
+    <value>Не удалось определить версию APKEditor</value>
+  </data>
   <data name="SetLanguageRestartApplication" xml:space="preserve">
     <value>Язык установлен. Хотите перезапустить программу?</value>
   </data>

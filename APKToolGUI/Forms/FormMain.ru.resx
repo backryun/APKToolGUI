@@ -275,4 +275,79 @@
   <data name="label_SIGN_PublicKey.Text" xml:space="preserve">
     <value>Открытый ключ</value>
   </data>
+  <data name="tabPageMain.Text" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="tabPageApkInfo.Text" xml:space="preserve">
+    <value>Инфо APK</value>
+  </data>
+  <data name="checkBox4.Text" xml:space="preserve">
+    <value>Количество потоков:</value>
+  </data>
+  <data name="checkBox_BUILD_NetSecConf.Text" xml:space="preserve">
+    <value>Добавить файл конфигурации сетевой безопасности (Network Security Configuration)</value>
+  </data>
+  <data name="useAapt2ChkBox.Text" xml:space="preserve">
+    <value>Использовать aapt2 (для версий apktool &lt; 2.11.1)</value>
+  </data>
+  <data name="buildSetApiLvlChkBox.Text" xml:space="preserve">
+    <value>Установить уровень API (напр. 14 для ICS)</value>
+  </data>
+  <data name="createUnsignApkChkBox.Text" xml:space="preserve">
+    <value>Создать неподписанный APK с оригинальной подписью (Core Patch)</value>
+  </data>
+  <data name="signAfterBuildChkBox.Text" xml:space="preserve">
+    <value>Подписать после сборки / выравнивания</value>
+  </data>
+  <data name="zipalignAfterBuildChkBox.Text" xml:space="preserve">
+    <value>Выровнять после сборки</value>
+  </data>
+  <data name="checkBox_BUILD_NoCrunch.Text" xml:space="preserve">
+    <value>Отключить сжатие ресурсов</value>
+  </data>
+  <data name="tabPageBaksmali.Text" xml:space="preserve">
+    <value>Baksmali / Smali</value>
+  </data>
+  <data name="tabPageAdb.Text" xml:space="preserve">
+    <value>ADB</value>
+  </data>
+  <data name="mergeApkBtn.Text" xml:space="preserve">
+    <value>Слияние APK</value>
+  </data>
+  <data name="selSplitApkBtn.Text" xml:space="preserve">
+    <value>Выбрать Split APK</value>
+  </data>
+  <data name="baksmaliUseOutputChkBox.Text" xml:space="preserve">
+    <value>Свой каталог вывода:</value>
+  </data>
+  <data name="smaliUseOutputChkBox.Text" xml:space="preserve">
+    <value>Свой каталог вывода:</value>
+  </data>
+  <data name="killAdbBtn.Text" xml:space="preserve">
+    <value>Перезапустить ADB</value>
+  </data>
+  <data name="installApkBtn.Text" xml:space="preserve">
+    <value>Установить APK</value>
+  </data>
+  <data name="refreshDevicesBtn.Text" xml:space="preserve">
+    <value>Обновить список</value>
+  </data>
+  <data name="selApkAdbBtn.Text" xml:space="preserve">
+    <value>Выбрать APK</value>
+  </data>
+  <data name="overrideAbiCheckBox.Text" xml:space="preserve">
+    <value>Переопределить ABI:</value>
+  </data>
+  <data name="bakSmaliGroupBox.Text" xml:space="preserve">
+    <value>Baksmali (DEX -&gt; Smali)</value>
+  </data>
+  <data name="smaliGroupBox.Text" xml:space="preserve">
+    <value>Smali (Smali -&gt; DEX)</value>
+  </data>
+  <data name="decSmaliBtn.Text" xml:space="preserve">
+    <value>Дизассемблировать</value>
+  </data>
+  <data name="comSmaliBtn.Text" xml:space="preserve">
+    <value>Ассемблировать</value>
+  </data>
 </root>
