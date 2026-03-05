@@ -120,7 +120,7 @@ namespace APKToolGUI
 
         public int Decompile(string inputPath, string outputDir)
         {
-            string keyNoSrc = null, keyNoRes = null, keyForce = null, keyFramePath = null, keyMatchOriginal = null, keyOutputDir = null, onlyMainClasses = null, noDebugInfo = null, keyKeepBrokenRes = null, apiLevel = null;
+            string keyNoSrc = null, keyNoRes = null, keyForce = null, keyFramePath = null, keyMatchOriginal = null, keyOutputDir = null, onlyMainClasses = null, noDebugInfo = null, keyKeepBrokenRes = null, apiLevel = null, jobs = null;
 
             if (Settings.Default.Decode_NoSrc)
                 keyNoSrc = DecompileKeys.NoSource;
@@ -143,10 +143,10 @@ namespace APKToolGUI
             if (Settings.Default.Decode_SetApiLevel)
                 apiLevel = String.Format("{0} {1}", DecompileKeys.ApiLevel, Settings.Default.Decode_ApiLevel);
             if (Settings.Default.Decode_SetJobs)
-                apiLevel = String.Format("{0} {1}", DecompileKeys.Jobs, Settings.Default.Decode_Jobs);
+                jobs = String.Format("{0} {1}", DecompileKeys.Jobs, Settings.Default.Decode_Jobs);
             keyOutputDir = String.Format("{0} \"{1}\"", DecompileKeys.OutputDir, outputDir);
 
-            string args = String.Format($"d{keyNoSrc}{keyNoRes}{keyForce}{onlyMainClasses}{noDebugInfo}{keyMatchOriginal}{keyFramePath}{keyKeepBrokenRes}{apiLevel}{keyOutputDir} \"{inputPath}\"");
+            string args = String.Format($"d{keyNoSrc}{keyNoRes}{keyForce}{onlyMainClasses}{noDebugInfo}{keyMatchOriginal}{keyFramePath}{keyKeepBrokenRes}{apiLevel}{jobs}{keyOutputDir} \"{inputPath}\"");
 
             Log.d("Apktool CMD: " + _jarPath + " " + args);
 
@@ -189,7 +189,7 @@ namespace APKToolGUI
 
         public int Build(string inputFolder, string outputFile)
         {
-            string keyForceAll = null, keyAapt = null, keyCopyOriginal = null, noCrunch = null, keyFramePath = null, keyOutputAppPath = null, apiLevel = null, useAapt2 = null, netSecConf = null;
+            string keyForceAll = null, keyAapt = null, keyCopyOriginal = null, noCrunch = null, keyFramePath = null, keyOutputAppPath = null, apiLevel = null, jobs = null, useAapt2 = null, netSecConf = null;
 
             if (Settings.Default.Build_ForceAll)
                 keyForceAll = BuildKeys.ForceAll;
@@ -206,14 +206,14 @@ namespace APKToolGUI
             if (Settings.Default.Build_SetApiLevel)
                 apiLevel = String.Format("{0} {1}", BuildKeys.ApiLevel, Settings.Default.Build_ApiLevel);
             if (Settings.Default.Build_SetJobs)
-                apiLevel = String.Format("{0} {1}", BuildKeys.Jobs, Settings.Default.Build_Jobs);
+                jobs = String.Format("{0} {1}", BuildKeys.Jobs, Settings.Default.Build_Jobs);
             if (Settings.Default.Build_UseAapt2)
                 useAapt2 = BuildKeys.UseAapt2;
             if (Settings.Default.Build_NetSecConf)
                 netSecConf = BuildKeys.NetSecConf;
             keyOutputAppPath = String.Format("{0} \"{1}\"", BuildKeys.OutputAppPath, outputFile);
 
-            string args = String.Format($"b{keyForceAll}{keyAapt}{keyCopyOriginal}{noCrunch}{keyFramePath}{apiLevel}{useAapt2}{netSecConf}{keyOutputAppPath} \"{inputFolder}\"");
+            string args = String.Format($"b{keyForceAll}{keyAapt}{keyCopyOriginal}{noCrunch}{keyFramePath}{apiLevel}{jobs}{useAapt2}{netSecConf}{keyOutputAppPath} \"{inputFolder}\"");
 
             Log.d("Apktool CMD: " + _jarPath + " " + args);
 

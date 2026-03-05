@@ -1,3 +1,8 @@
+3.3.2.2
+- Updated APKEditor to 1.4.7
+- Updated Apktool to 3.0.1
+- Updated ADB to 37.0.0-14910828
+
 3.3.2.1
 - Updated APKEditor to 1.4.5
 - Updated Apktool to 2.12.1

@@ -205,14 +205,17 @@ namespace APKToolGUI
                 ToLog(ApktoolEventType.Success, Language.Done);
                 ToStatus(Language.Done, Resources.done);
             }
+#if DEBUG
             catch (Exception ex)
             {
-#if DEBUG
                 ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo + "\n" + ex.ToString());
-#else
-                ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo);
-#endif
             }
+#else
+            catch (Exception)
+            {
+                ToLog(ApktoolEventType.Warning, Language.ErrorGettingApkInfo);
+            }
+#endif
         }
 
         private async Task<ApkParseResult> ParseApkInBackgroundAsync(string file, string splitPath)
@@ -1235,7 +1238,7 @@ namespace APKToolGUI
             Running(Language.Signing);
 
             string outputFile = input;
-            if (Settings.Default.Zipalign_UseOutputDir && !IgnoreOutputDirContextMenu)
+            if (Settings.Default.Sign_UseOutputDir && !IgnoreOutputDirContextMenu)
                 outputFile = Path.Combine(Settings.Default.Sign_OutputDir, Path.GetFileName(input));
             if (!Settings.Default.Sign_OverwriteInputFile)
                 outputFile = PathUtils.GetDirectoryNameWithoutExtension(outputFile) + "_signed.apk";

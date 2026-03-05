@@ -14,7 +14,7 @@ namespace Java
 
         public JarProcess(string javaPath, string jarPath)
         {
-            JavaPath = javaPath.Equals("java") ? "" : javaPath;
+            JavaPath = string.IsNullOrWhiteSpace(javaPath) ? "java" : javaPath;
             JarPath = jarPath;
             Initialize();
         }
@@ -38,8 +38,9 @@ namespace Java
             if (Settings.Default.UseCustomJVMArgs)
                 customArgs = Settings.Default.CustomJVMArgs;
 
-            StartInfo.Arguments = String.Format("-jar {0} \"{1}\" {2}", customArgs, JarPath, args);
-            Debug.WriteLine(String.Format("-jar {0} \"{1}\" {2}", customArgs, JarPath, args));
+            string jvmArgs = string.IsNullOrWhiteSpace(customArgs) ? string.Empty : customArgs.Trim() + " ";
+            StartInfo.Arguments = String.Format("{0}-jar \"{1}\" {2}", jvmArgs, JarPath, args);
+            Debug.WriteLine(StartInfo.Arguments);
             return base.Start();
         }
 

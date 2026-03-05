@@ -38,6 +38,12 @@ namespace SaveToGameWpf.Logic.Utils
         public static void CheckDragEnter(this DragEventArgs e, params string[] extensions)
         {
             string[] files = e.GetFilesDrop();
+            if (files.Length == 0)
+            {
+                e.Effect = DragDropEffects.None;
+                return;
+            }
+
             if (extensions == null && Directory.Exists(files[0]))
                 e.Effect = DragDropEffects.Copy;
             else if (extensions != null && extensions.Any(ext => files[0].EndsWith(ext, StringComparison.Ordinal)))
@@ -49,12 +55,18 @@ namespace SaveToGameWpf.Logic.Utils
         public static bool CheckDragOver(this DragEventArgs e, params string[] extensions)
         {
             string[] files = e.GetFilesDrop();
+            if (files.Length == 0)
+            {
+                e.Effect = DragDropEffects.None;
+                return false;
+            }
+
             if (extensions == null && Directory.Exists(files[0]))
             {
                 e.Effect = DragDropEffects.Move;
                 return true;
             }
-            else if (files.Length == 1 && extensions.Any(ext => files[0].EndsWith(ext, StringComparison.Ordinal)))
+            else if (extensions != null && files.Length == 1 && extensions.Any(ext => files[0].EndsWith(ext, StringComparison.Ordinal)))
             {
                 e.Effect = DragDropEffects.Move;
                 return true;
@@ -68,6 +80,11 @@ namespace SaveToGameWpf.Logic.Utils
         public static bool CheckManyDragOver(this DragEventArgs e, params string[] extensions)
         {
             string[] files = e.GetFilesDrop();
+            if (files.Length == 0)
+            {
+                e.Effect = DragDropEffects.None;
+                return false;
+            }
 
             if (extensions == null && Directory.Exists(files[0]))
             {
@@ -87,6 +104,9 @@ namespace SaveToGameWpf.Logic.Utils
         public static bool DropOneByEnd(this DragEventArgs e, Action<string> onSuccess, params string[] extensions)
         {
             string[] files = e.GetFilesDrop();
+            if (files.Length == 0)
+                return false;
+
             if (extensions == null && Directory.Exists(files[0]))
             {
                 onSuccess(files[0]);
@@ -103,6 +123,9 @@ namespace SaveToGameWpf.Logic.Utils
 
         public static bool DropManyByEnd(this DragEventArgs e, Action<string[]> onSuccess, params string[] extensions)
         {
+            if (extensions == null || extensions.Length == 0)
+                return false;
+
             foreach (string apk in extensions)
             {
                 Debug.WriteLine(apk);

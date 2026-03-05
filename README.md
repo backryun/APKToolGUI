@@ -16,7 +16,7 @@ If you remain unsure, you can compile the app yourself or refrain from using it 
 
 # Requirements
 - Windows 7 32-bit/64-bit and above
-- [Java](https://www.java.com/en/) or [JDK](https://www.oracle.com/java/technologies/downloads/) 8 or above. Using latest JDK is not really necessary. Java 8 and 17 (long-term support release) is enough. Use 64-bit version if your system is 64-bit
+- [Java](https://www.java.com/en/) or [JDK](https://www.oracle.com/java/technologies/downloads/) 8 or above. Using latest JDK is not really necessary. Java 8 and 25 (long-term support release) is enough. Use 64-bit version if your system is 64-bit
 - [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) (Windows 8 and above already have it preinstalled)
 
 # Features
@@ -109,7 +109,7 @@ No, these features are also beyond the scope of this tool. I do not support or c
 # Development
 This project is written in C#
 
-Use Visual Studio 2019 and above. NET Framework 4.8 SDK is required
+Use Visual Studio 2022 and above. NET Framework 4.8 SDK is required
 
 # Credits
 - AndnixSH

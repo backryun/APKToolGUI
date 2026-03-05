@@ -208,7 +208,7 @@ namespace APKToolGUI.Handlers
             string apkFile = null;
             if (e.DropOneByEnd(file => apkFile = file, apks))
             {
-                main.smaliBrowseInputDirTxtBox.Text = apkFile;
+                main.fileTxtBox.Text = apkFile;
                 main.basicInfoTabPage.BackColor = PanelBackColor();
                 await main.GetApkInfo(apkFile);
             }

@@ -203,7 +203,7 @@ namespace APKToolGUI.Handlers
         {
             string inputFile = Settings.Default.Sign_InputFile;
             string outputFile = inputFile;
-            if (Settings.Default.Zipalign_UseOutputDir)
+            if (Settings.Default.Sign_UseOutputDir)
                 outputFile = Path.Combine(Settings.Default.Sign_OutputDir, Path.GetFileName(inputFile));
 
             if (File.Exists(outputFile))

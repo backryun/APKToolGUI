@@ -24,7 +24,6 @@ namespace APKToolGUI.Handlers
             main = Main;
             main.button_SIGN_BrowsePublicKey.Click += Button_SIGN_BrowsePublicKey_Click;
             main.button_SIGN_BrowsePrivateKey.Click += Button_SIGN_BrowsePrivateKey_Click;
-            main.button_SIGN_BrowsePrivateKey.Click += Button_SIGN_BrowsePrivateKey_Click;
             main.button_SIGN_BrowseInputFile.Click += Button_SIGN_BrowseInputFile_Click;
             main.button_SIGN_BrowseOutputFile.Click += Button_SIGN_BrowseOutputFile_Click;
             main.schemev1ComboBox.SelectedIndexChanged += SchemeComboBox_SelectedIndexChanged;
