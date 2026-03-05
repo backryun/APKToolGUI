@@ -31,13 +31,14 @@ jobs:
       run: mkdir package
 
     - name: Copy essential files to package
+      shell: pwsh
       run: |
-        cp APKToolGUI/bin/Release/APKToolGUI.exe package/
-        cp -r APKToolGUI/bin/Release/Resources package/
-        cp APKToolGUI/bin/Release/*.dll package/
+        Copy-Item APKToolGUI/bin/Release/APKToolGUI.exe package/
+        Copy-Item changelog.txt package/Changelog.txt
 
-    - name: Create placeholder config.xml
-      run: New-Item -Path package/ -Name "config.xml" -ItemType "file"
+        if (Test-Path APKToolGUI/bin/Release/Resources) {
+          Copy-Item APKToolGUI/bin/Release/Resources package/ -Recurse
+        }
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
