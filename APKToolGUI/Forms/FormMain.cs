@@ -704,18 +704,10 @@ namespace APKToolGUI
         #region Apktool
         public async void SetApktoolPath()
         {
-            apktool.JarPath = Program.APKTOOL_PATH;
-            if (Settings.Default.UseCustomApktool)
-            {
-                apktool.JarPath = Settings.Default.ApktoolPath;
-            }
+            InitializeAPKTool();
 
-            string apktoolVersion = apktool.GetVersion();
-            string apktoolVersionOld = apktool.GetVersionOld();
-            if (!String.IsNullOrWhiteSpace(apktoolVersion) && !Regex.IsMatch(apktoolVersion, @"\r\n?|\n"))
-                ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} \"{apktoolVersion}\"");
-            else if (!String.IsNullOrWhiteSpace(apktoolVersionOld) && !Regex.IsMatch(apktoolVersionOld, @"\r\n?|\n"))
-                ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} \"{apktoolVersionOld}\"");
+            if (!String.IsNullOrWhiteSpace(apktool.Version))
+                ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} \"{apktool.Version}\"");
             else
                 ToLog(ApktoolEventType.Error, Language.CantDetectApktoolVersion);
 
@@ -1438,13 +1430,9 @@ namespace APKToolGUI
                     if (javaVersion != null)
                     {
                         ToLog(ApktoolEventType.None, javaVersion);
-                        string apktoolVersion = apktool.GetVersion();
-                        string apktoolVersionOld = apktool.GetVersionOld();
 
-                        if (!String.IsNullOrWhiteSpace(apktoolVersion) && !Regex.IsMatch(apktoolVersion, @"\r\n?|\n"))
-                            ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} {apktoolVersion}");
-                        else if (!String.IsNullOrWhiteSpace(apktoolVersionOld) && !Regex.IsMatch(apktoolVersionOld, @"\r\n?|\n"))
-                            ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} {apktoolVersionOld}");
+                        if (!String.IsNullOrWhiteSpace(apktool.Version) && !Regex.IsMatch(apktool.Version, @"\r\n?|\n"))
+                            ToLog(ApktoolEventType.None, $"{Language.APKToolVersion} {apktool.Version}");
                         else
                             ToLog(ApktoolEventType.Error, Language.CantDetectApktoolVersion);
 

@@ -14,55 +14,118 @@ namespace APKToolGUI
     public class Apktool : JarProcess, IDisposable
     {
         private bool disposed = false;
+        private static readonly Regex ApktoolVersionRegex = new Regex(@"v?(?<version>\d+\.\d+\.\d+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public Version ParsedVersion { get; private set; }
+        public string Version { get; private set; }
 
-        enum ApktoolActionType
+        public Apktool(string javaPath, string jarPath) : base(javaPath, jarPath)
         {
-            Decompile,
-            Build,
-            InstallFramework,
-            ClearFramework,
-            Null
+            Exited += Apktool_Exited;
+            OutputDataReceived += Apktool_OutputDataReceived;
+            ErrorDataReceived += Apktool_ErrorDataReceived;
+
+            string apktoolVersion = GetVersion();
+            string apktoolVersionOld = GetVersionOld();
+            if (!String.IsNullOrWhiteSpace(apktoolVersion) && !Regex.IsMatch(apktoolVersion, @"\r\n?|\n"))
+                Version = apktoolVersion;
+            else if (!String.IsNullOrWhiteSpace(apktoolVersionOld) && !Regex.IsMatch(apktoolVersionOld, @"\r\n?|\n"))
+                Version = apktoolVersionOld;
+
+            ParsedVersion = ParseVersion(Version);
+
+            Debug.WriteLine($"[Apktool] Parsed version: {ParsedVersion}");
         }
 
         static class DecompileKeys
         {
-            public const string NoSource = " -s"; //Do not decode sources.
-            public const string NoResource = " -r"; //Do not decode resources.
-            public const string NoDebugInfo = " -b"; //don't write out debug info (.local, .param, .line, etc.)
-            public const string Force = " -f"; //Skip changes detection and build all files.
-            public const string FrameworkPath = " -p"; //Uses framework files located in <dir>.
-            public const string KeepBrokenResource = " -k"; //Use if there was an error and some resources were dropped
-            public const string MatchOriginal = " -m"; //Keeps files to closest to original as possible. Prevents rebuild.
-            public const string OutputDir = " -o"; //The name of folder that gets written. Default is apk.out
-            public const string OnlyMainClasses = " -only-main-classes"; //Only disassemble the main dex classes (classes[0-9]*.dex) in the root.
-            public const string ApiLevel = " -api"; //The numeric api-level of the file to generate, e.g. 14 for ICS.
-            public const string Jobs = " -j"; // Sets the number of threads to use.
+            //Do not decode sources.
+            public const string NoSource = " -s";
+
+            //Do not decode resources.
+            public const string NoResource = " -r";
+
+            //don't write out debug info (.local, .param, .line, etc.)
+            //The -b flag has been removed from APKtool 3.0.1 and later versions,
+            //but the --no-debug-info flag is supported in all versions.
+            public const string NoDebugInfo = " --no-debug-info";
+
+            //Skip changes detection and build all files.
+            public const string Force = " -f";
+
+            //Uses framework files located in <dir>.
+            public const string FrameworkPath = " -p";
+
+            //Use if there was an error and some resources were dropped
+            public const string KeepBrokenResource = " -k";
+
+            //Keeps files to closest to original as possible. Prevents rebuild.
+            public const string MatchOriginal = " -m";
+
+            //The name of folder that gets written. Default is apk.out
+            public const string OutputDir = " -o";
+
+            //Only disassemble the main dex classes (classes[0-9]*.dex) in the root.
+            public const string OnlyMainClasses = " --only-main-classes";
+
+            //The numeric api-level of the file to generate, e.g. 14 for ICS.
+            public const string ApiLevel = " -api";
+
+            // Sets the number of threads to use.
+            public const string Jobs = " -j";
         }
 
         static class BuildKeys
         {
-            public const string ForceAll = " -f"; //Skip changes detection and build all files.
-            public const string CopyOriginal = " -c"; //opies original AndroidManifest.xml and META-INF. See project page for more info.
-            public const string Aapt = " -a"; //Loads aapt from specified location.
-            public const string FrameworkPath = " -p"; //Uses framework files located in <dir>.
-            public const string OutputAppPath = " -o"; // The name of apk that gets written. Default is dist/name.apk
-            public const string NoCrunch = " -nc"; // Disable crunching of resource files during the build step.
-            public const string ApiLevel = " -api"; //The numeric api-level of the file to generate, e.g. 14 for ICS.
-            public const string UseAapt2 = " --use-aapt2"; //Upgrades apktool to use experimental aapt2 binary.
-            public const string NetSecConf = " --net-sec-conf"; //Add a generic Network Security Configuration file in the output APK
-            public const string Jobs = " -j"; // Sets the number of threads to use.
+            //Skip changes detection and build all files.
+            public const string ForceAll = " -f";
+
+            //opies original AndroidManifest.xml and META-INF. See project page for more info.
+            public const string CopyOriginal = " -c";
+
+            //Loads aapt from specified location.
+            public const string Aapt = " -a";
+
+            //Uses framework files located in <dir>.
+            public const string FrameworkPath = " -p";
+
+            // The name of apk that gets written. Default is dist/name.apk
+            public const string OutputAppPath = " -o";
+
+            // Disable crunching of resource files during the build step.
+            public const string NoCrunch = " -nc";
+
+            //The numeric api-level of the file to generate, e.g. 14 for ICS.
+            public const string ApiLevel = " -api";
+
+            //Upgrades apktool to use experimental aapt2 binary.
+            public const string UseAapt2 = " --use-aapt2";
+
+            //Add a generic Network Security Configuration file in the output APK
+            public const string NetSecConf = " --net-sec-conf";
+
+            // Sets the number of threads to use.
+            public const string Jobs = " -j";
         }
 
         static class InstallFrameworkKeys
         {
-            public const string FrameDir = " -p"; //Stores framework files into <dir>.
-            public const string Tag = " -t"; //Tag frameworks using <tag>.
+            //Stores framework files into <dir>.
+            public const string FrameDir = " -p";
+
+            //Tag frameworks using <tag>.
+            public const string Tag = " -t";
         }
 
         static class EmptyFrameworkKeys
         {
-            public const string FrameDir = " -p"; //Stores framework files into <dir>.
-            public const string ForceDelete = " -f"; //Force delete destination directory.
+            //Stores framework files into <dir>.
+            public const string FrameDir = " -p";
+
+            //Force delete destination directory.
+            public const string ForceDelete = " -f";
+
+            //Include all framework files regardless of tag. (3.0.1+)
+            public const string All = " -a";
         }
 
         ApktoolDataReceivedEventHandler onApktoolOutputDataRecieved;
@@ -89,15 +152,6 @@ namespace APKToolGUI
             {
                 onApktoolErrorDataRecieved -= value;
             }
-        }
-
-        string _jarPath;
-        public Apktool(string javaPath, string jarPath) : base(javaPath, jarPath)
-        {
-            _jarPath = jarPath;
-            Exited += Apktool_Exited;
-            OutputDataReceived += Apktool_OutputDataReceived;
-            ErrorDataReceived += Apktool_ErrorDataReceived;
         }
 
         private void Apktool_ErrorDataReceived(object sender, DataReceivedEventArgs e)
@@ -132,7 +186,7 @@ namespace APKToolGUI
                 keyKeepBrokenRes = DecompileKeys.KeepBrokenResource;
             if (Settings.Default.Decode_MatchOriginal)
                 keyMatchOriginal = DecompileKeys.MatchOriginal;
-            if (Settings.Default.Decode_OnlyMainClasses && !Settings.Default.Decode_NoSrc)
+            if (Settings.Default.Decode_OnlyMainClasses && !Settings.Default.Decode_NoSrc && IsVersionAtMost("2.12.1"))
                 onlyMainClasses = DecompileKeys.OnlyMainClasses;
             if (Settings.Default.Decode_NoDebugInfo)
                 noDebugInfo = DecompileKeys.NoDebugInfo;
@@ -148,43 +202,13 @@ namespace APKToolGUI
 
             string args = String.Format($"d{keyNoSrc}{keyNoRes}{keyForce}{onlyMainClasses}{noDebugInfo}{keyMatchOriginal}{keyFramePath}{keyKeepBrokenRes}{apiLevel}{jobs}{keyOutputDir} \"{inputPath}\"");
 
-            Log.d("Apktool CMD: " + _jarPath + " " + args);
+            Log.d("Apktool CMD: " + JarPath + " " + args);
 
             Start(args);
             BeginOutputReadLine();
             BeginErrorReadLine();
             WaitForExit();
             return ExitCode;
-        }
-
-        public void Cancel()
-        {
-            try
-            {
-                foreach (var process in Process.GetProcessesByName("java"))
-                {
-                    using (process)
-                    {
-                        if (process.Id == Id)
-                        {
-                            ProcessUtils.KillAllProcessesSpawnedBy((uint)Id);
-                            process.Kill();
-                        }
-                    }
-                }
-            }
-            catch (InvalidOperationException ex)
-            {
-                Debug.WriteLine($"[Apktool] Process already exited: {ex.Message}");
-            }
-            catch (System.ComponentModel.Win32Exception ex)
-            {
-                Debug.WriteLine($"[Apktool] Failed to access process: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[Apktool] Failed to cancel process: {ex.Message}");
-            }
         }
 
         public int Build(string inputFolder, string outputFile)
@@ -215,7 +239,7 @@ namespace APKToolGUI
 
             string args = String.Format($"b{keyForceAll}{keyAapt}{keyCopyOriginal}{noCrunch}{keyFramePath}{apiLevel}{jobs}{useAapt2}{netSecConf}{keyOutputAppPath} \"{inputFolder}\"");
 
-            Log.d("Apktool CMD: " + _jarPath + " " + args);
+            Log.d("Apktool CMD: " + JarPath + " " + args);
 
             Start(args);
             BeginOutputReadLine();
@@ -236,7 +260,7 @@ namespace APKToolGUI
 
             string args = String.Format($"if{keyFrameDir}{keyTag} \"{inputPath}\"");
 
-            Log.d("Apktool CMD: " + _jarPath + " " + args);
+            Log.d("Apktool CMD: " + JarPath + " " + args);
 
             Start(args);
             BeginOutputReadLine();
@@ -254,14 +278,51 @@ namespace APKToolGUI
                 keyFramePath = String.Format("{0} \"{1}\"", DecompileKeys.FrameworkPath, Program.STANDALONE_FRAMEWORK_DIR);
 
             string args = String.Format($"empty-framework-dir {EmptyFrameworkKeys.ForceDelete} {keyFramePath}");
+            if (IsVersionAtLeast("3.0.1"))
+                args = String.Format($"clean-frameworks {EmptyFrameworkKeys.All} {keyFramePath}");
 
-            Log.d("Apktool CMD: " + _jarPath + " " + args);
+            Log.d("Apktool CMD: " + JarPath + " " + args);
 
             Start(args);
             BeginOutputReadLine();
             BeginErrorReadLine();
             WaitForExit();
             return ExitCode;
+        }
+
+        public bool IsVersionAtLeast(string minimumVersion)
+        {
+            if (String.IsNullOrWhiteSpace(minimumVersion))
+                throw new ArgumentException("Minimum version cannot be null or empty.", nameof(minimumVersion));
+
+            return ParsedVersion.CompareTo(new Version(minimumVersion)) >= 0;
+        }
+
+        public bool IsVersionAtMost(string maximumVersion)
+        {
+            if (String.IsNullOrWhiteSpace(maximumVersion))
+                throw new ArgumentException("Maximum version cannot be null or empty.", nameof(maximumVersion));
+
+            return ParsedVersion.CompareTo(new Version(maximumVersion)) <= 0;
+        }
+
+        private static Version ParseVersion(string rawVersion)
+        {
+            if (String.IsNullOrWhiteSpace(rawVersion))
+                return null;
+
+            Match match = ApktoolVersionRegex.Match(rawVersion.Trim());
+            if (!match.Success)
+                return null;
+
+            try
+            {
+                return new Version(match.Groups["version"].Value);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public string GetVersion()
@@ -285,6 +346,36 @@ namespace APKToolGUI
                 string version = apktoolJar.StandardOutput.ReadToEnd();
                 apktoolJar.WaitForExit(3000);
                 return version.Replace("\r\n", "");
+            }
+        }
+
+        public void Cancel()
+        {
+            try
+            {
+                foreach (var process in Process.GetProcessesByName("java"))
+                {
+                    using (process)
+                    {
+                        if (process.Id == Id)
+                        {
+                            ProcessUtils.KillAllProcessesSpawnedBy((uint)Id);
+                            process.Kill();
+                        }
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine($"[Apktool] Process already exited: {ex.Message}");
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                Debug.WriteLine($"[Apktool] Failed to access process: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[Apktool] Failed to cancel process: {ex.Message}");
             }
         }
 
@@ -400,5 +491,14 @@ namespace APKToolGUI
         Warning,
         Error,
         Unknown
+    }
+
+    enum ApktoolActionType
+    {
+        Decompile,
+        Build,
+        InstallFramework,
+        ClearFramework,
+        Null
     }
 }
